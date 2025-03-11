@@ -13,6 +13,8 @@ enum RoleEnum: string
             self::MASTER => [
                 PermissionEnum::READ_DASHBOARD,
 
+                PermissionEnum::UPDATE_HOME_HERO,
+
                 PermissionEnum::CREATE_POST,
                 PermissionEnum::READ_POST,
                 PermissionEnum::UPDATE_POST,

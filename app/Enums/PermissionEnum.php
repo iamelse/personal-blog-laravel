@@ -5,6 +5,8 @@ namespace App\Enums;
 enum PermissionEnum: string
 {
     case READ_DASHBOARD = 'dashboard_read';
+    
+    case UPDATE_HOME_HERO = 'home_hero_update';
 
     case CREATE_POST = 'posts_create';
     case READ_POST = 'posts_read';

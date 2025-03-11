@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
 
         Role::factory()->count(100)->create();
         User::factory()->count(100)->create();
+
+        $this->call(SectionSeeder::class);
     }
 }

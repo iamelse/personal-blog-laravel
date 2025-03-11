@@ -11,46 +11,29 @@
     <title>{{ $title ?? env('APP_NAME') }}</title>
     
     @php
-      $viteDevUrl = env('VITE_DEV_SERVER_URL', 'http://localhost:5173');
-      $isDevServerRunning = false;
+        use Illuminate\Support\Facades\App;
 
-      // Check if the Vite Dev Server is running
-      try {
-          $ch = curl_init($viteDevUrl);
-          curl_setopt($ch, CURLOPT_NOBODY, true);
-          curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_exec($ch);
-          
-          if (!curl_errno($ch)) {
-              $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-              $isDevServerRunning = $http_code >= 200 && $http_code < 400;
-          }
-          
-          curl_close($ch);
-      } catch (\Exception $e) {
-          $isDevServerRunning = false;
-      }
-  @endphp
+        $environment = App::environment();
+    @endphp
 
-  @if ($isDevServerRunning)
-      {{-- Use Vite Dev Server --}}
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
-  @else
-      {{-- Load Production Build --}}
-      @php
+    @if ($environment === 'local')
+        {{-- Use Vite Dev Server --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        {{-- Load Production or Staging Build --}}
+        @php
           $manifestPath = public_path('build/manifest.json');
           $manifest = file_exists($manifestPath) ? json_decode(file_get_contents($manifestPath), true) : null;
-      @endphp
+        @endphp
 
-      @if ($manifest && isset($manifest['resources/css/app.css'], $manifest['resources/js/app.js']))
+        @if ($manifest && isset($manifest['resources/css/app.css'], $manifest['resources/js/app.js']))
           <link rel="stylesheet" href="{{ asset('build/' . $manifest['resources/css/app.css']['file']) }}" />
           <script type="module" src="{{ asset('build/' . $manifest['resources/js/app.js']['file']) }}"></script>
-      @else
+        @else
           {{-- Fallback if manifest.json is missing --}}
           <p style="color: red;">Error: Build files not found. Please run <code>npm run build</code>.</p>
-      @endif
-  @endif
+        @endif
+    @endif
 
     @stack('styles')
     @stack('scripts')

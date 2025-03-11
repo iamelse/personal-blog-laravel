@@ -19,15 +19,18 @@
     </script>
   @endpush
 
+  @php
+    $heroContent = json_decode($hero->content ?? '{}', true);
+  @endphp
+  
   <!-- Hero Section -->
   <section class="py-28 lg:py-56 text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-gray-300">
-        Laravel Web Developer Expert
+        {{ $heroContent['title'] }}
       </h1>
       <p class="mt-6 text-base sm:text-lg text-gray-500 dark:text-gray-300 max-w-3xl mx-auto">
-        Hi, I'm Lana Septiana, a passionate and experienced Laravel Web Developer specializing in building scalable, high-performance web applications.
-        I am committed to writing clean, maintainable code and following best practices to ensure long-term scalability and performance.
+        {{ $heroContent['description'] }}
       </p>
 
       <!-- Tech Stack Icons -->

@@ -12,32 +12,16 @@
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       
       @php
-         $viteDevUrl = env('VITE_DEV_SERVER_URL', 'http://localhost:5173');
-         $isDevServerRunning = false;
+         use Illuminate\Support\Facades\App;
 
-         try {
-            $ch = curl_init($viteDevUrl);
-            curl_setopt($ch, CURLOPT_NOBODY, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT_MS, 200);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_exec($ch);
-            
-            if (!curl_errno($ch)) {
-                  $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-                  $isDevServerRunning = $http_code >= 200 && $http_code < 400;
-            }
-            
-            curl_close($ch);
-         } catch (\Exception $e) {
-            $isDevServerRunning = false;
-         }
+         $environment = App::environment();
       @endphp
 
-      @if ($isDevServerRunning)
+      @if ($environment === 'local')
          {{-- Use Vite Dev Server --}}
          @vite(['resources/css/app.css', 'resources/js/app.js'])
       @else
-         {{-- Load Production Build --}}
+         {{-- Load Production or Staging Build --}}
          @php
             $manifestPath = public_path('build/manifest.json');
             $manifest = file_exists($manifestPath) ? json_decode(file_get_contents($manifestPath), true) : null;
@@ -51,7 +35,6 @@
             <p style="color: red;">Error: Build files not found. Please run <code>npm run build</code>.</p>
          @endif
       @endif
-
    </head>
    <body
       x-data="{ 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
