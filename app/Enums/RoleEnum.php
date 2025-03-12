@@ -15,6 +15,11 @@ enum RoleEnum: string
 
                 PermissionEnum::UPDATE_HOME_HERO,
 
+                PermissionEnum::CREATE_SKILL,
+                PermissionEnum::READ_SKILL,
+                PermissionEnum::UPDATE_SKILL,
+                PermissionEnum::DELETE_SKILL,
+
                 PermissionEnum::CREATE_POST,
                 PermissionEnum::READ_POST,
                 PermissionEnum::UPDATE_POST,

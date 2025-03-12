@@ -35,53 +35,16 @@
 
       <!-- Tech Stack Icons -->
       <div class="mt-10 flex flex-wrap justify-center gap-6">
-        <!-- Laravel Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-laravel-plain text-red-600 text-xl sm:text-3xl dark:text-red-400"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">Laravel</span>
-        </div>
-
-        <!-- MySQL Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-mysql-plain text-blue-500 text-xl sm:text-3xl dark:text-blue-300"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">MySQL</span>
-        </div>
-
-        <!-- HTML Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-html5-plain text-orange-500 text-xl sm:text-3xl dark:text-orange-300"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">HTML</span>
-        </div>
-
-        <!-- Tailwind Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="300">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-tailwindcss-plain text-teal-500 text-xl sm:text-3xl dark:text-teal-300"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">Tailwind</span>
-        </div>
-
-        <!-- Bootstrap Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="400">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-bootstrap-plain text-purple-600 text-xl sm:text-3xl dark:text-purple-400"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">Bootstrap</span>
-        </div>
-
-        <!-- JavaScript Icon -->
-        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="500">
-          <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-            <i class="devicon-javascript-plain text-yellow-500 text-xl sm:text-3xl dark:text-yellow-400"></i>
-          </div>
-          <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">JavaScript</span>
-        </div>
+          @forelse ($skills as $skill)
+            <div class="flex flex-col items-center">
+                <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
+                    <i class="{{ $skill->icon_class }} {{ $skill->color_light }} text-xl sm:text-3xl {{ 'dark:' . $skill->color_dark }}"></i>
+                </div>
+                <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">{{ $skill->name }}</span>
+            </div>              
+          @empty
+              <p class="font-medium text-gray-500 dark:text-gray-300">No Data</p>
+          @endforelse
       </div>
 
       <!-- Buttons -->

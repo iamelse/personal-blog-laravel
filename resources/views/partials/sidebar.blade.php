@@ -56,7 +56,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                   'title' => 'Management',
                   'order' => 3,
                   'children' => [
-                     ['order' => 2, 'active' => 'be.role.and.permission', 'route' => 'be.role.and.permission.index', 'icon' => 'bx-lock-open', 'label' => 'Skill', 'permission' => PermissionEnum::READ_ROLE],
+                     ['order' => 1, 'active' => 'be.skill', 'route' => 'be.skill.index', 'icon' => 'bx-code-alt', 'label' => 'Skill', 'permission' => PermissionEnum::READ_SKILL],
                      ['order' => 2, 'active' => 'be.role.and.permission', 'route' => 'be.role.and.permission.index', 'icon' => 'bx-lock-open', 'label' => 'Role and Permission', 'permission' => PermissionEnum::READ_ROLE],
                      ['order' => 3, 'active' => 'be.user', 'route' => 'be.user.index', 'icon' => 'bx bx-user', 'label' => 'User', 'permission' => PermissionEnum::READ_USER],
                   ]

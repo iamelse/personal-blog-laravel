@@ -35,6 +35,8 @@
             <p style="color: red;">Error: Build files not found. Please run <code>npm run build</code>.</p>
          @endif
       @endif
+
+      @stack('styles')
    </head>
    <body
       x-data="{ 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"

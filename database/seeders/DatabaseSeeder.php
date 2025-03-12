@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(100)->create();
 
         $this->call(SectionSeeder::class);
+        $this->call(SkillSeeder::class);
     }
 }

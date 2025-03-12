@@ -18,6 +18,12 @@
                     Personalize your Hero Section to make a strong first impression.
                 </p>
             </div>
+            
+            <!-- Shortcut to Skills Page -->
+            <a href="{{ route('be.skill.index') }}" class="flex items-center gap-2 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg transition">
+                <i class="bx bx-grid-alt text-lg"></i> <!-- Boxicon icon -->
+                Manage Skills
+            </a>
         </div>
 
         <!-- Hero Section Form -->

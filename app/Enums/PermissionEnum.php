@@ -8,6 +8,11 @@ enum PermissionEnum: string
     
     case UPDATE_HOME_HERO = 'home_hero_update';
 
+    case CREATE_SKILL = 'skills_create';
+    case READ_SKILL = 'skills_read';
+    case UPDATE_SKILL = 'skills_update';
+    case DELETE_SKILL = 'skills_delete';
+
     case CREATE_POST = 'posts_create';
     case READ_POST = 'posts_read';
     case UPDATE_POST = 'posts_update';
