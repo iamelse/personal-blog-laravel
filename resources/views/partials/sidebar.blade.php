@@ -49,7 +49,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                   'order' => 2,
                   'children' => [
                      ['order' => 1, 'active' => 'be.home.hero', 'route' => 'be.home.hero.index', 'icon' => 'bx bx-image', 'label' => 'Hero', 'permission' => PermissionEnum::UPDATE_HOME_HERO],
-                     ['order' => 2, 'active' => 'be.home.about', 'route' => 'be.home.hero.index', 'icon' => 'bx-id-card', 'label' => 'About Me', 'permission' => PermissionEnum::READ_DASHBOARD],
+                     ['order' => 2, 'active' => 'be.home.about', 'route' => 'be.home.about.index', 'icon' => 'bx-id-card', 'label' => 'About Me', 'permission' => PermissionEnum::UPDATE_HOME_ABOUT],
                   ]
                ],
                [

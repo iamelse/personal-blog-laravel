@@ -29,3 +29,28 @@ if (!function_exists('getUserImageProfilePath')) {
         return $avatar->toBase64();
     }
 }
+
+if (!function_exists('getAboutMeImageSection')) {
+    function getAboutMeImageSection($content)
+    {
+        $disk = env('FILESYSTEM_DISK');
+        $placeholderUrl = 'https://dummyimage.com/300';
+        $appUrl = rtrim(env('APP_URL'), '/');
+        $publicHtmlPath = base_path('../public_html');
+
+        if ($disk === FileSystemDiskEnum::PUBLIC->value) {
+            if ($content['image'] && Storage::disk('public')->exists($content['image'])) {
+                return asset('storage/' . $content['image']);
+            }
+        } 
+        elseif ($disk === FileSystemDiskEnum::PUBLIC_UPLOADS->value) {
+            $filePath = $content['image'];
+            $fullPath = $publicHtmlPath . '/' . $filePath;
+            if ($content['image'] && file_exists($fullPath)) {
+                return $appUrl . '/' . $filePath;
+            }
+        }
+
+        return $placeholderUrl;
+    }
+}

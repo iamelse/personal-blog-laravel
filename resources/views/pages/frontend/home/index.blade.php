@@ -21,6 +21,7 @@
 
   @php
     $heroContent = json_decode($hero->content ?? '{}', true);
+    $aboutContent = json_decode($about->content ?? '{}', true);
   @endphp
   
   <!-- Hero Section -->
@@ -63,27 +64,27 @@
   <section id="about" class="py-16 lg:py-32 text-center bg-white dark:bg-gray-800 transition-colors">
     <div class="max-w-6xl mx-auto px-6">
       <h2 data-aos="fade-up" class="text-3xl py-2 lg:py-10 sm:text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-gray-300">
-        About Me
+        {{ $aboutContent['title'] }}
       </h2>
 
       <div class="mt-10 flex flex-col lg:flex-row items-center justify-between gap-10">
         <!-- Image on the left -->
         <div data-aos="fade-right" class="w-full lg:w-1/2 flex justify-center items-stretch">
-          <img src="https://iamelse.my.id/uploads/home/1738004657.webp" alt="Lana Septiana" class="h-full w-[100%] lg:w-[90%] sm:h-auto object-cover rounded-xl">
+          <!-- Preview Image -->
+          <div class="w-full max-w-md aspect-square rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+              <img 
+                  src="{{ getAboutMeImageSection($aboutContent) }}" 
+                  class="w-full h-full object-cover"
+                  alt="Image Preview"
+              >
+          </div>
         </div>
 
         <!-- Text on the right -->
         <div class="w-full lg:w-1/2 text-left flex items-stretch">
           <div data-aos="fade-left" class="flex flex-col justify-between h-full">
             <p class="text-base sm:text-lg text-gray-500 dark:text-gray-300">
-              Hello! I'm Lana Septiana, a passionate Laravel Web Developer with over X years of experience in building scalable and high-performance web applications. 
-              I specialize in Laravel and have extensive knowledge in web technologies like MySQL, JavaScript, and modern front-end tools such as Tailwind CSS and Bootstrap. 
-              My expertise allows me to create clean, maintainable, and optimized code for long-term success.
-            </p>
-
-            <p class="mt-4 text-base sm:text-lg text-gray-500 dark:text-gray-300">
-              Throughout my career, I've worked on a variety of projects, collaborating with teams to deliver exceptional user experiences. I am always eager to learn and grow,
-              and I strive to implement industry best practices to achieve optimal results. I'm committed to creating value through my work and continuously improving my skills.
+              {!! nl2br(e($aboutContent['description'])) !!}
             </p>
           </div>
         </div>

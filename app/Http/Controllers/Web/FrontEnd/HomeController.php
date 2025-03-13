@@ -13,12 +13,14 @@ class HomeController extends Controller
     public function index(): View
     {
         $hero = Section::where('name', 'hero')->firstOrFail();
+        $about = Section::where('name', 'about')->firstOrFail();
         $skills = Skill::limit(10)->get();
 
         return view('pages.frontend.home.index', [
             'title' => 'Home',
             'hero' => $hero,
-            'skills' => $skills
+            'about' => $about,
+            'skills' => $skills,
         ]);
     }
 }
