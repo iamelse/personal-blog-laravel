@@ -6,10 +6,6 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
-  safelist: [
-    { pattern: /^text-(red|blue|green|yellow|purple|pink|gray|indigo|teal|cyan)-[1-9]00$/ },
-    { pattern: /^dark:text-(red|blue|green|yellow|purple|pink|gray|indigo|teal|cyan)-[1-9]00$/ }
-  ],
   darkMode: "class",
   theme: {
     fontFamily: {
@@ -151,30 +147,30 @@ export default {
           950: '#3B0764',
         },
         blue: {
-          '50': '#EFF6FF',
-          '100': '#DBEAFE',
-          '200': '#BFDBFE',
-          '300': '#93C5FD',
-          '400': '#60A5FA',
-          '500': '#3B82F6',
-          '600': '#2563EB',
-          '700': '#1D4ED8',
-          '800': '#1E40AF',
-          '900': '#1E3A8A',
-          '950': '#172554'
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
+          950: '#172554'
         },        
         teal: {
-          '50': '#F0FDFA',
-          '100': '#CCFBF1',
-          '200': '#99F6E4',
-          '300': '#5EEAD4',
-          '400': '#2DD4BF',
-          '500': '#14B8A6',
-          '600': '#0D9488',
-          '700': '#0F766E',
-          '800': '#115E59',
-          '900': '#134E4A',
-          '950': '#042F2E'
+          50: '#F0FDFA',
+          100: '#CCFBF1',
+          200: '#99F6E4',
+          300: '#5EEAD4',
+          400: '#2DD4BF',
+          500: '#14B8A6',
+          600: '#0D9488',
+          700: '#0F766E',
+          800: '#115E59',
+          900: '#134E4A',
+          950: '#042F2E'
         },        
         "theme-pink": {
           500: "#EE46BC",
