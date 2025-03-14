@@ -8,7 +8,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
    :class="sidebarToggle ? 'justify-center' : 'justify-between'"
    class="flex items-center gap-2 pt-8 sidebar-header pb-7"
    >
-   <a href="index.html">
+   <a href="{{ route('be.dashboard.index') }}">
    <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
    <img class="dark:hidden" src="{{ asset('tailadmin/images/logo/logo.svg') }}" alt="Logo" />
    <img
@@ -50,6 +50,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                   'children' => [
                      ['order' => 1, 'active' => 'be.home.hero', 'route' => 'be.home.hero.index', 'icon' => 'bx bx-image', 'label' => 'Hero', 'permission' => PermissionEnum::UPDATE_HOME_HERO],
                      ['order' => 2, 'active' => 'be.home.about', 'route' => 'be.home.about.index', 'icon' => 'bx-id-card', 'label' => 'About Me', 'permission' => PermissionEnum::UPDATE_HOME_ABOUT],
+                     ['order' => 3, 'active' => 'be.home.cta', 'route' => 'be.home.cta.index', 'icon' => 'bx-rocket', 'label' => 'Call To Action', 'permission' => PermissionEnum::UPDATE_HOME_CTA],
                   ]
                ],
                [

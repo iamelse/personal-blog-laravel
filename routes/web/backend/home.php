@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\BackEnd\Home\AboutController;
+use App\Http\Controllers\Web\BackEnd\Home\CallToActionController;
 use App\Http\Controllers\Web\BackEnd\Home\HeroController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,3 +10,6 @@ Route::put('/home/hero/update', [HeroController::class,'update'])->name('be.home
 
 Route::get('/home/about', [AboutController::class,'index'])->name('be.home.about.index');
 Route::put('/home/about/update', [AboutController::class,'update'])->name('be.home.about.update');
+
+Route::get('/home/cta', [CallToActionController::class,'index'])->name('be.home.cta.index');
+Route::put('/home/cta/update', [CallToActionController::class,'update'])->name('be.home.cta.update');

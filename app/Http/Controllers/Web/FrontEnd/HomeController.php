@@ -15,12 +15,14 @@ class HomeController extends Controller
         $hero = Section::where('name', 'hero')->firstOrFail();
         $about = Section::where('name', 'about')->firstOrFail();
         $skills = Skill::limit(10)->get();
+        $callToAction = Section::where('name','cta')->firstOrFail();
 
         return view('pages.frontend.home.index', [
             'title' => 'Home',
             'hero' => $hero,
             'about' => $about,
             'skills' => $skills,
+            'callToAction' => $callToAction
         ]);
     }
 }

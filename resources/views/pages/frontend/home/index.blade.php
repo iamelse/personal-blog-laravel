@@ -22,6 +22,7 @@
   @php
     $heroContent = json_decode($hero->content ?? '{}', true);
     $aboutContent = json_decode($about->content ?? '{}', true);
+    $CTAContent = json_decode($callToAction->content ?? '{}', true);
   @endphp
   
   <!-- Hero Section -->
@@ -237,11 +238,10 @@
         <!-- Text Content -->
         <div class="flex-1 text-center md:text-left" data-aos="fade-right">
           <h2 class="text-3xl sm:text-4xl font-bold leading-tight">
-            Let's Collaborate and Build Something Amazing!
+            {{ $CTAContent['title'] }}
           </h2>
           <p class="mt-3 text-lg text-blue-200">
-            I’m open to exciting projects and opportunities in web development, Laravel, and beyond. 
-            Let’s create something impactful together.
+            {!! nl2br(e($CTAContent['description'])) !!}
           </p>
         </div>
 
