@@ -51,6 +51,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                      ['order' => 1, 'active' => 'be.home.hero', 'route' => 'be.home.hero.index', 'icon' => 'bx bx-image', 'label' => 'Hero', 'permission' => PermissionEnum::UPDATE_HOME_HERO],
                      ['order' => 2, 'active' => 'be.home.about', 'route' => 'be.home.about.index', 'icon' => 'bx-id-card', 'label' => 'About Me', 'permission' => PermissionEnum::UPDATE_HOME_ABOUT],
                      ['order' => 3, 'active' => 'be.home.cta', 'route' => 'be.home.cta.index', 'icon' => 'bx-rocket', 'label' => 'Call To Action', 'permission' => PermissionEnum::UPDATE_HOME_CTA],
+                     ['order' => 3, 'active' => 'be.home.footer', 'route' => 'be.home.footer.index', 'icon' => 'bx-dock-bottom', 'label' => 'Footer', 'permission' => PermissionEnum::UPDATE_HOME_FOOTER],
                   ]
                ],
                [

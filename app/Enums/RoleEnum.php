@@ -16,6 +16,7 @@ enum RoleEnum: string
                 PermissionEnum::UPDATE_HOME_HERO,
                 PermissionEnum::UPDATE_HOME_ABOUT,
                 PermissionEnum::UPDATE_HOME_CTA,
+                PermissionEnum::UPDATE_HOME_FOOTER,
 
                 PermissionEnum::CREATE_SKILL,
                 PermissionEnum::READ_SKILL,

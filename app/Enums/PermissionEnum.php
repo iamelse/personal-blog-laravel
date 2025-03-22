@@ -12,6 +12,8 @@ enum PermissionEnum: string
 
     case UPDATE_HOME_CTA = 'home_cta_update';
 
+    case UPDATE_HOME_FOOTER = 'home_footer_update';
+
     case CREATE_SKILL = 'skills_create';
     case READ_SKILL = 'skills_read';
     case UPDATE_SKILL = 'skills_update';
