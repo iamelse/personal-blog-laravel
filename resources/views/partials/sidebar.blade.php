@@ -1,34 +1,34 @@
 <!-- ===== Sidebar Start ===== -->
 <aside
-:class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
-class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0"
+   :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
+   class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0"
 >
 <!-- SIDEBAR HEADER -->
 <div
-   :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-   class="flex items-center gap-2 pt-8 sidebar-header pb-7"
+      :class="sidebarToggle ? 'justify-center' : 'justify-between'"
+      class="flex items-center gap-2 pt-8 sidebar-header pb-7"
    >
    <a href="{{ route('be.dashboard.index') }}">
-   <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-   <img class="dark:hidden" src="{{ asset('tailadmin/images/logo/logo.svg') }}" alt="Logo" />
-   <img
-      class="hidden dark:block"
-      src="{{ asset('tailadmin/images/logo/logo-dark.svg') }}"
-      alt="Logo"
+      <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
+      <img class="dark:hidden" src="{{ asset('tailadmin/images/logo/logo.svg') }}" alt="Logo" />
+      <img
+         class="hidden dark:block"
+         src="{{ asset('tailadmin/images/logo/logo-dark.svg') }}"
+         alt="Logo"
       />
-   </span>
-   <img
-      class="logo-icon"
-      :class="sidebarToggle ? 'lg:block' : 'hidden'"
-      src="{{ asset('tailadmin/images/logo/logo-icon.svg') }}"
-      alt="Logo"
+      </span>
+      <img
+         class="logo-icon"
+         :class="sidebarToggle ? 'lg:block' : 'hidden'"
+         src="{{ asset('tailadmin/images/logo/logo-icon.svg') }}"
+         alt="Logo"
       />
    </a>
 </div>
 <!-- SIDEBAR HEADER -->
 <div
    class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar"
-   >
+>
    <!-- Sidebar Menu -->
    <nav>
       <!-- Menu Group -->
@@ -80,13 +80,13 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                         'permission' => PermissionEnum::UPDATE_HOME_CTA
                      ],
                      [
-                        'order' => 3, 'active' => 'be.home.footer', 
+                        'order' => 4, 
+                        'active' => 'be.home.footer', 
                         'route' => 'be.home.footer.index', 
                         'icon' => 'bx-dock-bottom', 
                         'label' => 'Footer', 
                         'permission' => PermissionEnum::UPDATE_HOME_FOOTER
                      ],
-                     
                   ]
                ],
                [
@@ -111,8 +111,13 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                      ],
                      [
                         'order' => 3, 
-                        'active' => 'be.user', 'route' => 
-                        'be.user.index', 
+                        'active' => [
+                           'be.user.index',
+                           'be.user.create',
+                           'be.user.edit'
+                        ],
+                        'exact' => true,
+                        'route' => 'be.user.index', 
                         'icon' => 'bx bx-user', 
                         'label' => 'User', 
                         'permission' => PermissionEnum::READ_USER
@@ -140,9 +145,14 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
                </h3>
                <ul class="flex flex-col gap-4 mb-6">
                   @foreach ($menu['children'] as $child)
+                     @php
+                           $isActive = is_array($child['active'])
+                              ? collect($child['active'])->some(fn($route) => request()->routeIs($route . ($child['exact'] ?? false ? '' : '*')))
+                              : request()->routeIs($child['active'] . ($child['exact'] ?? false ? '' : '*'));
+                     @endphp           
                      <li>
                         <a href="{{ route($child['route']) }}" 
-                           class="menu-item group {{ request()->routeIs($child['active'] . '*') ? 'menu-item-active' : 'menu-item-inactive' }}">
+                           class="menu-item group {{ $isActive ? 'menu-item-active' : 'menu-item-inactive' }}">
                            <i class="bx bx-sm {{ $child['icon'] }}"></i>
                            {{ $child['label'] }}
                         </a>
@@ -152,6 +162,7 @@ class="sidebar fixed left-0 top-0 z-40 flex h-screen w-[290px] flex-col overflow
             @endforeach
          </div>
       </div>
+      <!-- Menu Group -->
    </nav>
    <!-- Sidebar Menu -->
 </div>
