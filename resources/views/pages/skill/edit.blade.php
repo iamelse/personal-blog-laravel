@@ -55,42 +55,6 @@
                         @enderror
                     </div>
 
-                    <!-- Color Light -->
-                    <div class="mt-4">
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Color Light <span class="text-error-500">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="color_light" 
-                            name="color_light" 
-                            value="{{ old('color_light', $skill->color_light) }}"
-                            placeholder="e.g., text-blue-500, text-red-400"
-                            class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
-                            required>
-                        @error('color_light')
-                            <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500">* {{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Color Dark -->
-                    <div class="mt-4">
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Color Dark <span class="text-error-500">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="color_dark" 
-                            name="color_dark" 
-                            value="{{ old('color_dark', $skill->color_dark) }}"
-                            placeholder="e.g., text-yellow-500, text-green-400"
-                            class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
-                            required>
-                        @error('color_dark')
-                            <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500">* {{ $message }}</span>
-                        @enderror
-                    </div>
-
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
                         <button type="submit" 

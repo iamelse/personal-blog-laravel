@@ -64,52 +64,6 @@
                         </div>
                     </div>
 
-                    <!-- Color Light -->
-                    <div class="mt-4">
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Color Light <span class="text-error-500">*</span>
-                        </label>
-                        <div x-data="{ hasError: {{ session('errors') && session('errors')->has('color_light') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="color_light" 
-                                name="color_light" 
-                                value="{{ old('color_light') }}"
-                                placeholder="e.g., text-blue-500, text-red-400"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
-                                    : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
-                                class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
-                                required>
-                            <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
-                                @error('color_light') * {{ $message }} @enderror
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Color Dark -->
-                    <div class="mt-4">
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Color Dark <span class="text-error-500">*</span>
-                        </label>
-                        <div x-data="{ hasError: {{ session('errors') && session('errors')->has('color_dark') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="color_dark" 
-                                name="color_dark" 
-                                value="{{ old('color_dark') }}"
-                                placeholder="e.g., text-yellow-500, text-green-400"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
-                                    : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
-                                class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
-                                required>
-                            <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
-                                @error('color_dark') * {{ $message }} @enderror
-                            </span>
-                        </div>
-                    </div>
-
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
                         <button type="submit" 
