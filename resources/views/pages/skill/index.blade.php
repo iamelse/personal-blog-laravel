@@ -211,7 +211,7 @@
                             <td class="px-4 py-3">
                                 <div class="flex flex-col items-center">
                                     <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-                                        <i class="{{ $skill->icon_class }} {{ $skill->color_light }} text-xl sm:text-3xl {{ 'dark:' . $skill->color_dark }}"></i>
+                                        <i class="{{ $skill->icon_class }} text-xl sm:text-3xl"></i>
                                     </div>
                                     <span class="mt-2 text-xs font-medium text-gray-500 dark:text-gray-300">{{ $skill->name }}</span>
                                 </div>
