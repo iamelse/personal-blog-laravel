@@ -6,6 +6,7 @@ use App\Models\Section;
 use App\Models\SocialMedia;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $footer = Section::where('name', 'footer')->first();
-        $socialMedia = SocialMedia::all();
+        $socialMedia = Schema::hasTable('social_media') ? SocialMedia::all() : collect([]);
 
         View::share([
             'footer' => $footer,
