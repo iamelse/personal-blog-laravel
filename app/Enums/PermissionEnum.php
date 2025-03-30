@@ -14,6 +14,11 @@ enum PermissionEnum: string
 
     case UPDATE_HOME_FOOTER = 'home_footer_update';
 
+    case CREATE_SOCIAL_MEDIA = 'social_media_create';
+    case READ_SOCIAL_MEDIA = 'social_media_read';
+    case UPDATE_SOCIAL_MEDIA = 'social_media_update';
+    case DELETE_SOCIAL_MEDIA = 'social_media_delete';
+
     case CREATE_SKILL = 'skills_create';
     case READ_SKILL = 'skills_read';
     case UPDATE_SKILL = 'skills_update';

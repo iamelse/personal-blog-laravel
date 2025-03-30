@@ -34,5 +34,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(SectionSeeder::class);
         $this->call(SkillSeeder::class);
+        $this->call(SocialMediaSeeder::class);
     }
 }

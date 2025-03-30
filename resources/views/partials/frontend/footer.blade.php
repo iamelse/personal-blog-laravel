@@ -14,19 +14,12 @@
 
       <h3 class="mt-6 text-xl font-semibold text-gray-900 dark:text-gray-300">Follow Me</h3>
       <!-- Social Media Links -->
-      <div class="mt-3 flex space-x-4">
-        <a href="#" class="hover:text-blue-500 dark:hover:text-blue-400 transition">
-          <i class="bx bxl-twitter text-2xl"></i>
-        </a>
-        <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">
-          <i class="bx bxl-linkedin text-2xl"></i>
-        </a>
-        <a href="#" class="hover:text-red-500 dark:hover:text-red-400 transition">
-          <i class="bx bxl-youtube text-2xl"></i>
-        </a>
-        <a href="#" class="hover:text-pink-500 dark:hover:text-pink-400 transition">
-          <i class="bx bxl-instagram text-2xl"></i>
-        </a>
+      <div class="mt-3 flex flex-wrap gap-4 justify-start">
+        @foreach ($socialMedia as $social)
+            <a href="{{ $social->url }}" class="text-gray-900 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition">
+                <i class="bx {{ $social->icon }} text-2xl"></i>
+            </a>
+        @endforeach
       </div>
     </div>
 

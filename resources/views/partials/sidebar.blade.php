@@ -95,6 +95,14 @@
                   'children' => [
                      [
                         'order' => 1, 
+                        'active' => 'be.social-media', 
+                        'route' => 'be.social-media.index', 
+                        'icon' => 'bx-group', 
+                        'label' => 'Social Media', 
+                        'permission' => PermissionEnum::READ_SOCIAL_MEDIA
+                     ],
+                     [
+                        'order' => 2, 
                         'active' => 'be.skill', 
                         'route' => 'be.skill.index', 
                         'icon' => 'bx-code-alt', 
@@ -102,7 +110,7 @@
                         'permission' => PermissionEnum::READ_SKILL
                      ],
                      [
-                        'order' => 2, 
+                        'order' => 3, 
                         'active' => 'be.role.and.permission', 
                         'route' => 'be.role.and.permission.index', 
                         'icon' => 'bx-lock-open', 
@@ -110,7 +118,7 @@
                         'permission' => PermissionEnum::READ_ROLE
                      ],
                      [
-                        'order' => 3, 
+                        'order' => 4, 
                         'active' => [
                            'be.user.index',
                            'be.user.create',

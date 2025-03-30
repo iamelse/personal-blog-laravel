@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Section;
+use App\Models\SocialMedia;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,7 +23,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $footer = Section::where('name', 'footer')->first();
-        
-        View::share('footer', $footer);
+        $socialMedia = SocialMedia::all();
+
+        View::share([
+            'footer' => $footer,
+            'socialMedia' => $socialMedia
+        ]);
     }
 }
