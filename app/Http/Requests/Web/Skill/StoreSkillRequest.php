@@ -22,10 +22,9 @@ class StoreSkillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255|unique:skills,name',
-            'icon_class' => 'required|max:255',
-            'color_light' => 'required|max:255',
-            'color_dark' => 'required|max:255',
+            'name' => 'required|max:255',
+            'slug' =>'required|max:255|unique:skills,slug',
+            'icon_class' => 'required|max:255'
         ];
     }
 }

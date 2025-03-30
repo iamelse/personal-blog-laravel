@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\Skill\StoreSkillRequest;
 use App\Http\Requests\Web\Skill\UpdateSkillRequest;
 use App\Models\Skill;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use FFI\Exception;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -55,12 +57,15 @@ class SkillController extends Controller
     {
         try {
             Gate::authorize(PermissionEnum::CREATE_SKILL);
+            
+            if (Skill::count() >= 7) {
+                return redirect()->back()
+                    ->with('error', 'Maximum number of skills reached.');
+            }
 
             Skill::create([
                 'name' => $request->name,
-                'icon_class' => $request->icon_class,
-                'color_light' => $request->color_light,
-                'color_dark' => $request->color_dark,
+                'icon_class' => $request->icon_class
             ]);
 
             return redirect()->route('be.skill.create')
@@ -94,12 +99,11 @@ class SkillController extends Controller
 
             Skill::where('name', $skill->name)->update([
                 'name' => $request->name,
-                'icon_class' => $request->icon_class,
-                'color_light' => $request->color_light,
-                'color_dark' => $request->color_dark,
+                'slug' => $request->slug,
+                'icon_class' => $request->icon_class
             ]);
             
-            return redirect()->route('be.skill.edit', $skill->name)
+            return redirect()->route('be.skill.edit', $request->slug ?? $skill->slug)
                 ->with('success','Skill updated successfully.');
         } catch (AuthorizationException $authorizationException) {
             Log::error($authorizationException->getMessage());
@@ -159,5 +163,12 @@ class SkillController extends Controller
                 ->route('be.skill.index')
                 ->with('error', 'An error occurred while deleting the skills.');
         }
+    }
+
+    public function generateSlug(Request $request): JsonResponse
+    {
+        $slug = SlugService::createSlug(Skill::class, 'slug', $request->name);
+
+        return response()->json(['slug' => $slug]);
     }
 }

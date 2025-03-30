@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable()->unique();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable()->unique();
             $table->string('icon_class')->nullable();
             $table->timestamps();
         });

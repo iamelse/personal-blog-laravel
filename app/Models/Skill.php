@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,13 +12,23 @@ use Yogameleniawan\SearchSortEloquent\Traits\Sortable;
 
 class Skill extends Model
 {
-    use HasFactory, Searchable, Sortable;
+    use HasFactory, Searchable, Sortable, Sluggable;
 
     protected $guarded = ['id'];
 
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'onUpdate' => true,
+            ],
+        ];
     }
 
     /**

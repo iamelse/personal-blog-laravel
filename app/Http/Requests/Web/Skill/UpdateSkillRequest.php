@@ -23,9 +23,8 @@ class UpdateSkillRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|unique:skills,name,' . $this->route('skill')->name . ',name',
-            'icon_class' => 'required|max:255',
-            'color_light' => 'required|max:255',
-            'color_dark' => 'required|max:255',
+            'slug' => 'required|max:255|unique:skills,slug,' . $this->route('skill')->slug . ',slug',
+            'icon_class' => 'required|max:255'
         ];        
     }
 }

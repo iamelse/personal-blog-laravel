@@ -20,11 +20,13 @@
             <p class="text-gray-600 dark:text-gray-400">Manage skill data</p>
         </div>
         @can(PermissionEnum::CREATE_SKILL, $skills)
-        <a href="{{ route('be.skill.create') }}" 
-            class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
-            <i class="bx bx-plus text-lg"></i>
-            New Skill
-        </a>
+            @if(count($skills) < 7)
+                <a href="{{ route('be.skill.create') }}" 
+                    class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
+                    <i class="bx bx-plus text-lg"></i>
+                    New Skill
+                </a>
+            @endif
         @endcan
     </div>
     
@@ -41,7 +43,7 @@
                             <a href="#" 
                                 x-on:click.prevent="
                                     if (selected.length > 0) { 
-                                        let params = new URLSearchParams({ names: selected.join(',') });
+                                        let params = new URLSearchParams({ slugs: selected.join(',') });
                                         deleteUrl = '{{ route('be.skill.mass.destroy') }}?' + params.toString();
                                         openSkillMassDeleteModal = true;
                                     }
@@ -204,7 +206,7 @@
                             <td class="w-10 px-6 py-3">
                                 <input 
                                     type="checkbox"
-                                    class="skill-checkbox flex h-5 w-5 border-gray-300 cursor-pointer items-center justify-center rounded-md border-[1.25px] transition-all" value="{{ $skill->name }}" 
+                                    class="skill-checkbox flex h-5 w-5 border-gray-300 cursor-pointer items-center justify-center rounded-md border-[1.25px] transition-all" value="{{ $skill->slug }}" 
                                     x-model="selected">
                             </td>
                             <td class="w-20 px-4 py-3">{{ $loop->iteration }}</td>
@@ -228,7 +230,7 @@
                                         class="absolute right-16 top-8 mt-1 w-40 rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900 
                                         z-50 overflow-visible">
                                         @can(PermissionEnum::UPDATE_SKILL, $skill)
-                                        <a href="{{ route('be.skill.edit', $skill->name) }}" class="block w-full px-4 py-2 text-left text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
+                                        <a href="{{ route('be.skill.edit', $skill->slug) }}" class="block w-full px-4 py-2 text-left text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800">
                                             Edit
                                         </a>
                                         @endcan
@@ -257,7 +259,7 @@
                                                         </button>
 
                                                         <!-- Delete Form -->
-                                                        <form action="{{ route('be.skill.destroy', $skill->name) }}" method="POST">
+                                                        <form action="{{ route('be.skill.destroy', $skill->slug) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">

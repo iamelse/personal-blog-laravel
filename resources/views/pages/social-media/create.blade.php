@@ -44,7 +44,7 @@
                     </div>
 
                     <!-- Slug -->
-                    <div x-data="{ hasError: {{ session('errors') && session('errors')->has('slug') ? 'true' : 'false' }} }">
+                    <div class="mt-4" x-data="{ hasError: {{ session('errors') && session('errors')->has('slug') ? 'true' : 'false' }} }">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Slug <span class="text-error-500">*</span>
                         </label>
