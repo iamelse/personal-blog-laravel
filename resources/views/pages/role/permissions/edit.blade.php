@@ -57,38 +57,47 @@
               
                   @foreach($groupedPermissions as $group => $permissions)
                   <div class="flex flex-col gap-4">
-                      <div class="flex items-center gap-3">
-                          <!-- Group Select All Checkbox -->
-                          @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
-                              <input type="checkbox"
-                                  :checked="groupSelected['{{ $group }}'].every(id => selectedPermissions.includes(id))"
-                                  @click="let allChecked = groupSelected['{{ $group }}'].every(id => selectedPermissions.includes(id));
-                                          groupSelected['{{ $group }}'].forEach(id => {
-                                              if (allChecked) {
-                                                  selectedPermissions = selectedPermissions.filter(p => p !== id);
-                                              } else if (!selectedPermissions.includes(id)) {
-                                                  selectedPermissions.push(id);
-                                              }
-                                          })"
-                                  class="form-checkbox rounded-md border-gray-400 h-5 w-5 text-blue-600 focus:ring focus:ring-blue-300 dark:border-gray-600 dark:focus:ring-blue-500">
-                          @endcan
-                          <span class="text-md font-semibold text-gray-900 dark:text-gray-200">{{ ucfirst($group) }}</span>
-                      </div>
-              
-                      <!-- Permissions List -->
-                      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ml-7">
-                          @foreach($permissions as $permission)
-                              <label class="flex items-center space-x-3 cursor-pointer">
-                                  @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
-                                  <input type="checkbox" name="permissions[]" value="{{ $permission->id }}"
-                                      x-model="selectedPermissions"
-                                      class="form-checkbox rounded-md border-gray-400 h-5 w-5 text-blue-600 focus:ring focus:ring-blue-300 dark:border-gray-600 dark:focus:ring-blue-500"
-                                      {{ $role->permissions->contains($permission->id) ? 'checked' : '' }}>
-                                  @endcan
-                                  <span class="text-gray-800 dark:text-gray-300 text-sm">{{ $permission->name }}</span>
-                              </label>
-                          @endforeach
-                      </div>
+                        @php
+                            $groupAliases = [
+                                'Social' => 'Social Media',
+                                'Quick' => 'Quick Link',
+                            ];
+                        @endphp
+                    
+                        <div class="flex items-center gap-3">
+                            <!-- Group Select All Checkbox -->
+                            @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
+                                <input type="checkbox"
+                                    :checked="groupSelected['{{ $group }}'].every(id => selectedPermissions.includes(id))"
+                                    @click="let allChecked = groupSelected['{{ $group }}'].every(id => selectedPermissions.includes(id));
+                                            groupSelected['{{ $group }}'].forEach(id => {
+                                                if (allChecked) {
+                                                    selectedPermissions = selectedPermissions.filter(p => p !== id);
+                                                } else if (!selectedPermissions.includes(id)) {
+                                                    selectedPermissions.push(id);
+                                                }
+                                            })"
+                                    class="form-checkbox rounded-md border-gray-400 h-5 w-5 text-blue-600 focus:ring focus:ring-blue-300 dark:focus:ring-blue-500">
+                            @endcan
+                            <span class="text-md font-semibold text-gray-900 dark:text-gray-200">
+                                {{ $groupAliases[$group] ?? ucfirst($group) }}
+                            </span>
+                        </div>
+
+                        <!-- Permissions List -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ml-7">
+                            @foreach($permissions as $permission)
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
+                                    <input type="checkbox" name="permissions[]" value="{{ $permission->id }}"
+                                        x-model="selectedPermissions"
+                                        class="form-checkbox rounded-md border-gray-400 h-5 w-5 text-blue-600 focus:ring focus:ring-blue-300 dark:border-gray-600 dark:focus:ring-blue-500"
+                                        {{ $role->permissions->contains($permission->id) ? 'checked' : '' }}>
+                                    @endcan
+                                    <span class="text-gray-800 dark:text-gray-300 text-sm">{{ $permission->name }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                   </div>
                   @endforeach
               

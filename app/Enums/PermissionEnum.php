@@ -19,6 +19,11 @@ enum PermissionEnum: string
     case UPDATE_SOCIAL_MEDIA = 'social_media_update';
     case DELETE_SOCIAL_MEDIA = 'social_media_delete';
 
+    case CREATE_QUICK_LINK = 'quick_link_create';
+    case READ_QUICK_LINK = 'quick_link_read';
+    case UPDATE_QUICK_LINK = 'quick_link_update';
+    case DELETE_QUICK_LINK = 'quick_link_delete';
+
     case CREATE_SKILL = 'skills_create';
     case READ_SKILL = 'skills_read';
     case UPDATE_SKILL = 'skills_update';

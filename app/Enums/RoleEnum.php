@@ -23,6 +23,11 @@ enum RoleEnum: string
                 PermissionEnum::UPDATE_SOCIAL_MEDIA,
                 PermissionEnum::DELETE_SOCIAL_MEDIA,
 
+                PermissionEnum::CREATE_QUICK_LINK,
+                PermissionEnum::READ_QUICK_LINK,
+                PermissionEnum::UPDATE_QUICK_LINK,
+                PermissionEnum::DELETE_QUICK_LINK,
+
                 PermissionEnum::CREATE_SKILL,
                 PermissionEnum::READ_SKILL,
                 PermissionEnum::UPDATE_SKILL,

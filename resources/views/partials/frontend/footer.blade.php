@@ -26,38 +26,31 @@
     <!-- Right Column: Quick Links -->
     <div>
       <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-300">Quick Links</h3>
-      <ul class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
-        <li>
-          <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            Projects
-          </a>
-        </li>
-        <li>
-          <a href="#posts" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            Blog
-          </a>
-        </li>
-        <li>
-          <a href="#services" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            Services
-          </a>
-        </li>
-        <li>
-          <a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            Contact
-          </a>
-        </li>
-        <li>
-          <a href="#faq" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-            FAQ
-          </a>
-        </li>
-      </ul>
+      @if ($quickLinks->count() <= 6)</a>
+        <ul class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          @forelse ($quickLinks as $quickLink)
+          <li>
+            <a href="{{ $quickLink->url }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
+              {{ $quickLink->name }}
+            </a>
+          </li>
+          @empty
+              
+          @endforelse
+        </ul>
+      @else
+        <ul class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          @forelse ($quickLinks as $quickLink)
+          <li>
+            <a href="{{ $quickLink->url }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
+              {{ $quickLink->name }}
+            </a>
+          </li>
+          @empty
+              
+          @endforelse
+        </ul>
+      @endif
     </div>
 
   </div>

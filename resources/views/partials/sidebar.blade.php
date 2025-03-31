@@ -90,7 +90,7 @@
                   ]
                ],
                [
-                  'title' => 'Management',
+                  'title' => 'Master Data',
                   'order' => 3,
                   'children' => [
                      [
@@ -129,6 +129,19 @@
                         'icon' => 'bx bx-user', 
                         'label' => 'User', 
                         'permission' => PermissionEnum::READ_USER
+                     ],
+                     [
+                        'order' => 4, 
+                        'active' => [
+                           'be.quick-link.index',
+                           'be.quick-link.create',
+                           'be.quick-link.edit'
+                        ],
+                        'exact' => true,
+                        'route' => 'be.quick-link.index', 
+                        'icon' => 'bx bx-link', 
+                        'label' => 'Quick Link', 
+                        'permission' => PermissionEnum::READ_QUICK_LINK
                      ],
                   ]
                ]

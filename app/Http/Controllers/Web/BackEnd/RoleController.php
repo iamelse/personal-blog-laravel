@@ -63,8 +63,8 @@ class RoleController extends Controller
 
     /**
      * Summary of store
-     * @param \App\Http\Requests\Web\Role\StoreRoleRequest $request
-     * @return void
+     * @param StoreRoleRequest $request
+     * @return RedirectResponse
      */
     public function store(StoreRoleRequest $request): RedirectResponse
     {
@@ -93,7 +93,7 @@ class RoleController extends Controller
     public function edit(Request $request, Role $role): View
     {
         Gate::authorize(PermissionEnum::UPDATE_ROLE->value);
-        
+
         return view('pages.role.edit', [
             'title'=> 'Edit Role ' . $role->name,
             'role' => $role
@@ -102,15 +102,15 @@ class RoleController extends Controller
 
     /**
      * Summary of update
-     * @param \App\Http\Requests\Web\Role\UpdateRoleRequest $request
-     * @param \App\Models\Role $role
+     * @param UpdateRoleRequest $request
+     * @param Role $role
      * @return RedirectResponse
      */
     public function update(UpdateRoleRequest $request, Role $role): RedirectResponse
     {
         try {
             Gate::authorize(PermissionEnum::UPDATE_ROLE->value);
-            
+
             $role->update([
                 'name' => $request->name
             ]);
@@ -119,7 +119,7 @@ class RoleController extends Controller
                 ->with('success', 'Role updated successfully.');
         } catch (AuthorizationException $authorizationException) {
             Log::error($authorizationException->getMessage());
-            
+
             abort(403, 'This action is unauthorized.');
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -131,8 +131,8 @@ class RoleController extends Controller
 
     /**
      * Summary of destroy
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Role $role
+     * @param Request $request
+     * @param Role $role
      * @return RedirectResponse
      */
     public function destroy(Request $request, Role $role): RedirectResponse
@@ -160,8 +160,8 @@ class RoleController extends Controller
 
     /**
      * Summary of massDestroy
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Role $role
+     * @param Request $request
+     * @param Role $role
      * @return RedirectResponse
      */
     public function massDestroy(Request $request, Role $role): RedirectResponse
@@ -190,7 +190,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing permission of spesific user role
+     * Show the form for editing permission of specific user role
      */
     public function editPermission(Request $request, Role $role): View
     {
