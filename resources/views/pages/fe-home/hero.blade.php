@@ -13,12 +13,12 @@
             <div>
                 <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
                     Hero Section
-                </h1>                
+                </h1>
                 <p class="text-gray-600 dark:text-gray-400">
                     Personalize your Hero Section to make a strong first impression.
                 </p>
             </div>
-            
+
             <!-- Shortcut to Skills Page -->
             <a href="{{ route('be.skill.index') }}" class="flex items-center gap-2 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg transition">
                 <i class="bx bx-grid-alt text-lg"></i> <!-- Boxicon icon -->
@@ -36,43 +36,43 @@
                     @php
                         $content = json_decode($hero->content ?? '{}', true);
                     @endphp
-    
+
                     <!-- Hero Title -->
                     <div class="mb-4">
                         <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             Title <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: @json(session('errors') && session('errors')->has('content.title')) }">
-                            <input 
-                                type="text" 
-                                id="title" 
+                            <input
+                                type="text"
+                                id="title"
                                 name="content[title]"
                                 placeholder="Enter title"
                                 value="{{ old('content.title', $content['title'] ?? '') }}"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
-                                class="h-11 w-full text-sm mt-1 px-4 py-2.5 border rounded-lg placeholder:text-gray-400 dark:placeholder:text-white/30"
+                                class="h-11 w-full mt-1 px-4 py-2.5 border rounded-lg placeholder:text-gray-400 dark:placeholder:text-white/30"
                             >
                             <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
                                 @error('content.title') * {{ $message }} @enderror
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Hero Description -->
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                            Description <span class="text-error-500">*</span> 
+                            Description <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: @json(session('errors') && session('errors')->has('content.description')) }">
-                            <textarea 
-                                id="description" 
-                                name="content[description]" 
+                            <textarea
+                                id="description"
+                                name="content[description]"
                                 rows="4"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
-                                    : 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500'"
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
+                                    : 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:ring-2 focus:ring-blue-500'"
                                 class="mt-1 block w-full rounded-lg"
                             >{{ old('content.description', $content['description'] ?? '') }}</textarea>
                             <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">

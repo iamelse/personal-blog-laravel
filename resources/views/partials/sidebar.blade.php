@@ -42,11 +42,11 @@
                   'order' => 1,
                   'children' => [
                      [
-                        'order' => 1, 
-                        'active' => 'be.dashboard', 
-                        'route' => 'be.dashboard.index', 
-                        'icon' => 'bx-line-chart', 
-                        'label' => 'Dashboard', 
+                        'order' => 1,
+                        'active' => 'be.dashboard',
+                        'route' => 'be.dashboard.index',
+                        'icon' => 'bx-line-chart',
+                        'label' => 'Dashboard',
                         'permission' => PermissionEnum::READ_DASHBOARD
                      ],
                   ]
@@ -56,91 +56,105 @@
                   'order' => 2,
                   'children' => [
                      [
-                        'order' => 1, 
-                        'active' => 'be.home.hero', 
-                        'route' => 'be.home.hero.index', 
-                        'icon' => 'bx bx-image', 
-                        'label' => 'Hero', 
+                        'order' => 1,
+                        'active' => 'be.home.hero',
+                        'route' => 'be.home.hero.index',
+                        'icon' => 'bx bx-image',
+                        'label' => 'Hero',
                         'permission' => PermissionEnum::UPDATE_HOME_HERO
                      ],
                      [
-                        'order' => 2, 
-                        'active' => 'be.home.about', 
-                        'route' => 'be.home.about.index', 
-                        'icon' => 'bx-id-card', 
-                        'label' => 'About Me', 
+                        'order' => 2,
+                        'active' => 'be.home.about',
+                        'route' => 'be.home.about.index',
+                        'icon' => 'bx-id-card',
+                        'label' => 'About Me',
                         'permission' => PermissionEnum::UPDATE_HOME_ABOUT
                      ],
                      [
-                        'order' => 3, 
-                        'active' => 'be.home.cta', 
-                        'route' => 'be.home.cta.index', 
-                        'icon' => 'bx-rocket', 
-                        'label' => 'Call To Action', 
+                        'order' => 3,
+                        'active' => 'be.home.cta',
+                        'route' => 'be.home.cta.index',
+                        'icon' => 'bx-rocket',
+                        'label' => 'Call To Action',
                         'permission' => PermissionEnum::UPDATE_HOME_CTA
                      ],
                      [
-                        'order' => 4, 
-                        'active' => 'be.home.footer', 
-                        'route' => 'be.home.footer.index', 
-                        'icon' => 'bx-dock-bottom', 
-                        'label' => 'Footer', 
+                        'order' => 4,
+                        'active' => 'be.home.footer',
+                        'route' => 'be.home.footer.index',
+                        'icon' => 'bx-dock-bottom',
+                        'label' => 'Footer',
                         'permission' => PermissionEnum::UPDATE_HOME_FOOTER
                      ],
                   ]
                ],
                [
-                  'title' => 'Master Data',
+                  'title' => 'About',
                   'order' => 3,
                   'children' => [
                      [
-                        'order' => 1, 
-                        'active' => 'be.social-media', 
-                        'route' => 'be.social-media.index', 
-                        'icon' => 'bx-group', 
-                        'label' => 'Social Media', 
+                        'order' => 1,
+                        'active' => 'be.about',
+                        'route' => 'be.about.index',
+                        'icon' => 'bx-bulb',
+                        'label' => 'About',
+                        'permission' => PermissionEnum::UPDATE_ABOUT
+                     ],
+                  ]
+               ],
+               [
+                  'title' => 'Master Data',
+                  'order' => 4,
+                  'children' => [
+                     [
+                        'order' => 1,
+                        'active' => 'be.social-media',
+                        'route' => 'be.social-media.index',
+                        'icon' => 'bx-group',
+                        'label' => 'Social Media',
                         'permission' => PermissionEnum::READ_SOCIAL_MEDIA
                      ],
                      [
-                        'order' => 2, 
-                        'active' => 'be.skill', 
-                        'route' => 'be.skill.index', 
-                        'icon' => 'bx-code-alt', 
-                        'label' => 'Skill', 
+                        'order' => 2,
+                        'active' => 'be.skill',
+                        'route' => 'be.skill.index',
+                        'icon' => 'bx-code-alt',
+                        'label' => 'Skill',
                         'permission' => PermissionEnum::READ_SKILL
                      ],
                      [
-                        'order' => 3, 
-                        'active' => 'be.role.and.permission', 
-                        'route' => 'be.role.and.permission.index', 
-                        'icon' => 'bx-lock-open', 
-                        'label' => 'Role and Permission', 
+                        'order' => 3,
+                        'active' => 'be.role.and.permission',
+                        'route' => 'be.role.and.permission.index',
+                        'icon' => 'bx-lock-open',
+                        'label' => 'Role and Permission',
                         'permission' => PermissionEnum::READ_ROLE
                      ],
                      [
-                        'order' => 4, 
+                        'order' => 4,
                         'active' => [
                            'be.user.index',
                            'be.user.create',
                            'be.user.edit'
                         ],
                         'exact' => true,
-                        'route' => 'be.user.index', 
-                        'icon' => 'bx bx-user', 
-                        'label' => 'User', 
+                        'route' => 'be.user.index',
+                        'icon' => 'bx bx-user',
+                        'label' => 'User',
                         'permission' => PermissionEnum::READ_USER
                      ],
                      [
-                        'order' => 4, 
+                        'order' => 4,
                         'active' => [
                            'be.quick-link.index',
                            'be.quick-link.create',
                            'be.quick-link.edit'
                         ],
                         'exact' => true,
-                        'route' => 'be.quick-link.index', 
-                        'icon' => 'bx bx-link', 
-                        'label' => 'Quick Link', 
+                        'route' => 'be.quick-link.index',
+                        'icon' => 'bx bx-link',
+                        'label' => 'Quick Link',
                         'permission' => PermissionEnum::READ_QUICK_LINK
                      ],
                   ]
@@ -170,9 +184,9 @@
                            $isActive = is_array($child['active'])
                               ? collect($child['active'])->some(fn($route) => request()->routeIs($route . ($child['exact'] ?? false ? '' : '*')))
                               : request()->routeIs($child['active'] . ($child['exact'] ?? false ? '' : '*'));
-                     @endphp           
+                     @endphp
                      <li>
-                        <a href="{{ route($child['route']) }}" 
+                        <a href="{{ route($child['route']) }}"
                            class="menu-item group {{ $isActive ? 'menu-item-active' : 'menu-item-inactive' }}">
                            <i class="bx bx-sm {{ $child['icon'] }}"></i>
                            {{ $child['label'] }}

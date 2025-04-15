@@ -4,6 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base styling for ordered and unordered lists */
+.costume-ol,
+.costume-ul {
+    @apply list-inside;
+}
+
+/* First level list (no additional margin) */
+.costume-ol {
+    @apply list-decimal ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200;
+}
+
+.costume-ul {
+    @apply list-disc ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200;
+}
+
+/* Second level (nested lists) */
+.costume-ol .costume-ul,
+.costume-ul .costume-ol {
+    @apply mt-1.5 ml-6; /* Increase indentation for nested items */
+}
+
+/* Third level (nested deeper lists) */
+.costume-ol .costume-ol,
+.costume-ul .costume-ul {
+    @apply mt-1.5 ml-8; /* Further indent */
+}
+
+/* Fourth level (deeper still) */
+.costume-ol .costume-ol .costume-ul,
+.costume-ul .costume-ul .costume-ol {
+    @apply mt-1.5 ml-10; /* Even more indentation */
+}
+
 [x-cloak] {
   display: none !important;
 }

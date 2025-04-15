@@ -22,8 +22,9 @@ Route::prefix('admin')->middleware('is.auth')->group(function () {
     include __DIR__. '/web/backend/quick-link.php';
 
     include __DIR__ . '/web/backend/user-profile.php';
-    
+
     include __DIR__ . '/web/backend/home.php';
+    include __DIR__ . '/web/backend/about.php';
 });
 
 

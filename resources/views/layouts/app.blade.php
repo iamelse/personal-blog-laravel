@@ -12,7 +12,7 @@
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
       <meta name="csrf-token" content="{{ csrf_token() }}">
-      
+
       @php
          use Illuminate\Support\Facades\App;
 

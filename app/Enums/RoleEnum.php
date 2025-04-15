@@ -18,6 +18,8 @@ enum RoleEnum: string
                 PermissionEnum::UPDATE_HOME_CTA,
                 PermissionEnum::UPDATE_HOME_FOOTER,
 
+                PermissionEnum::UPDATE_ABOUT,
+
                 PermissionEnum::CREATE_SOCIAL_MEDIA,
                 PermissionEnum::READ_SOCIAL_MEDIA,
                 PermissionEnum::UPDATE_SOCIAL_MEDIA,
@@ -42,7 +44,7 @@ enum RoleEnum: string
                 PermissionEnum::READ_USER,
                 PermissionEnum::UPDATE_USER,
                 PermissionEnum::DELETE_USER,
-                
+
                 PermissionEnum::CREATE_ROLE,
                 PermissionEnum::READ_ROLE,
                 PermissionEnum::UPDATE_ROLE,

@@ -5,7 +5,7 @@ namespace App\Enums;
 enum PermissionEnum: string
 {
     case READ_DASHBOARD = 'dashboard_read';
-    
+
     case UPDATE_HOME_HERO = 'home_hero_update';
 
     case UPDATE_HOME_ABOUT = 'home_about_update';
@@ -13,6 +13,8 @@ enum PermissionEnum: string
     case UPDATE_HOME_CTA = 'home_cta_update';
 
     case UPDATE_HOME_FOOTER = 'home_footer_update';
+
+    case UPDATE_ABOUT = 'about_update';
 
     case CREATE_SOCIAL_MEDIA = 'social_media_create';
     case READ_SOCIAL_MEDIA = 'social_media_read';
