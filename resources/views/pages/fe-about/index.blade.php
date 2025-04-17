@@ -170,8 +170,8 @@
         const heading4Classes = 'text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100';
         const heading5Classes = 'text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100';
         const heading6Classes = 'text-sm sm:text-base md:text-lg font-bold text-gray-900 dark:text-gray-100';
-        const olClasses = 'costume-ol list-decimal list-inside ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200';
-        const ulClasses = 'costume-ul list-disc list-inside ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200';
+        const olClasses = 'costume-ol list-decimal list-inside space-y-2 text-base text-gray-800 dark:text-gray-200';
+        const ulClasses = 'costume-ul list-disc list-inside space-y-2 text-base text-gray-800 dark:text-gray-200';
         const blockquoteClasses = 'border-l-4 border-gray-300 dark:border-gray-600 ml-4 pl-4 italic text-gray-700 dark:text-gray-300';
 
         // Helper to apply classes to elements

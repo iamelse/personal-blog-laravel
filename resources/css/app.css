@@ -12,11 +12,11 @@
 
 /* First level list (no additional margin) */
 .costume-ol {
-    @apply list-decimal ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200;
+    @apply list-decimal space-y-2 text-base text-gray-800 dark:text-gray-200;
 }
 
 .costume-ul {
-    @apply list-disc ml-4 space-y-2 text-base text-gray-800 dark:text-gray-200;
+    @apply list-disc space-y-2 text-base text-gray-800 dark:text-gray-200;
 }
 
 /* Second level (nested lists) */
