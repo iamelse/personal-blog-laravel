@@ -16,16 +16,16 @@
             <p class="text-gray-600 dark:text-gray-400">View and assign permissions for the "{{ $role->name }}" role.</p>
          </div>
       </div>
-      
+
       <div class="border-gray-100 p-5 dark:border-gray-800 sm:p-6">
          <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
             <form class="mt-5" action="{{ route('be.role.and.permission.update.permissions', $role->slug) }}" method="POST">
                @csrf
                @method('PUT')
 
-               <div x-data="{ 
-                  selectedPermissions: @json($role->permissions->pluck('id')), 
-                  groupSelected: {}, 
+               <div x-data="{
+                  selectedPermissions: @json($role->permissions->pluck('id')),
+                  groupSelected: {},
                   get allSelected() {
                       return Object.values(this.groupSelected).flat().length > 0 &&
                              Object.values(this.groupSelected).flat().every(id => this.selectedPermissions.includes(id));
@@ -37,24 +37,24 @@
                           this.selectedPermissions = [];
                       }
                   }
-              }" 
-              x-init="groupSelected = { 
+              }"
+              x-init="groupSelected = {
                   @foreach($groupedPermissions as $group => $permissions)
                       '{{ $group }}': {{ json_encode($permissions->pluck('id')->toArray()) }},
                   @endforeach
               }"
               class="space-y-6">
-              
+
                   <!-- Select All Checkbox -->
                   @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
                   <div class="flex items-center gap-3 mb-4">
-                      <input type="checkbox" 
-                          x-model="allSelected" 
+                      <input type="checkbox"
+                          x-model="allSelected"
                           class="form-checkbox rounded-md border-gray-400 h-5 w-5 text-blue-600 focus:ring focus:ring-blue-300 dark:border-gray-600 dark:focus:ring-blue-500">
                       <span class="text-md font-semibold text-gray-900 dark:text-gray-200">Select All</span>
                   </div>
                   @endcan
-              
+
                   @foreach($groupedPermissions as $group => $permissions)
                   <div class="flex flex-col gap-4">
                         @php
@@ -63,7 +63,7 @@
                                 'Quick' => 'Quick Link',
                             ];
                         @endphp
-                    
+
                         <div class="flex items-center gap-3">
                             <!-- Group Select All Checkbox -->
                             @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
@@ -100,7 +100,7 @@
                         </div>
                   </div>
                   @endforeach
-              
+
                   @can(PermissionEnum::UPDATE_ROLE_PERMISSION->value, $role)
                       <div class="flex justify-end mt-8">
                           <button type="submit"
@@ -110,7 +110,7 @@
                       </div>
                   @endcan
               </div>
-              
+
             </form>
          </div>
       </div>
