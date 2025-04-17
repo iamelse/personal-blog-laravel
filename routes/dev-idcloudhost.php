@@ -38,6 +38,14 @@ Route::get('/refresh-database', function () {
     ]);
 });
 
+Route::get('/route-cache', function () {
+    Artisan::call('route:cache');
+
+    return response()->json([
+        'message' => 'Routes cached successfully!',
+    ]);
+});
+
 Route::get('/dump-autoload', function () {
     try {
         $output = shell_exec('composer dump-autoload 2>&1');
