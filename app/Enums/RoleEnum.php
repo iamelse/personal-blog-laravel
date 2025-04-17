@@ -20,6 +20,8 @@ enum RoleEnum: string
 
                 PermissionEnum::UPDATE_ABOUT,
 
+                PermissionEnum::UPDATE_RESUME,
+
                 PermissionEnum::CREATE_SOCIAL_MEDIA,
                 PermissionEnum::READ_SOCIAL_MEDIA,
                 PermissionEnum::UPDATE_SOCIAL_MEDIA,

@@ -104,8 +104,22 @@
                   ]
                ],
                [
-                  'title' => 'Master Data',
+                  'title' => 'Resume',
                   'order' => 4,
+                  'children' => [
+                     [
+                        'order' => 1,
+                        'active' => 'be.resume',
+                        'route' => 'be.resume.index',
+                        'icon' => 'bx-file',
+                        'label' => 'Resume',
+                        'permission' => PermissionEnum::UPDATE_RESUME
+                     ],
+                  ]
+               ],
+               [
+                  'title' => 'Master Data',
+                  'order' => 5,
                   'children' => [
                      [
                         'order' => 1,

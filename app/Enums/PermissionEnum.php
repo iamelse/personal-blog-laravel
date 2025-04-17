@@ -16,6 +16,8 @@ enum PermissionEnum: string
 
     case UPDATE_ABOUT = 'about_update';
 
+    case UPDATE_RESUME = 'resume_update';
+
     case CREATE_SOCIAL_MEDIA = 'social_media_create';
     case READ_SOCIAL_MEDIA = 'social_media_read';
     case UPDATE_SOCIAL_MEDIA = 'social_media_update';

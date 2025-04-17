@@ -25,6 +25,7 @@ Route::prefix('admin')->middleware('is.auth')->group(function () {
 
     include __DIR__ . '/web/backend/home.php';
     include __DIR__ . '/web/backend/about.php';
+    include __DIR__ . '/web/backend/resume.php';
 });
 
 
