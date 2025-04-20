@@ -8,22 +8,41 @@
       :class="sidebarToggle ? 'justify-center' : 'justify-between'"
       class="flex items-center gap-2 pt-8 sidebar-header pb-7"
    >
-   <a href="{{ route('be.dashboard.index') }}">
+    <a href="{{ route('be.dashboard.index') }}">
       <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-      <img class="dark:hidden" src="{{ asset('tailadmin/images/logo/logo.svg') }}" alt="Logo" />
-      <img
-         class="hidden dark:block"
-         src="{{ asset('tailadmin/images/logo/logo-dark.svg') }}"
-         alt="Logo"
-      />
+        <!-- Light mode logo -->
+        <div class="flex items-center space-x-2 dark:hidden">
+          <img
+              class="h-10 w-auto rounded"
+              src="{{ asset('logo/iamelse-logo-1.png') }}"
+              alt="Logo"
+          />
+          <span class="ps-1 text-3xl font-bold text-gray-900 dark:text-white">
+            Iamelse
+          </span>
+        </div>
+
+          <!-- Dark mode logo -->
+        <div class="flex items-center space-x-2 hidden dark:flex">
+          <img
+              class="h-10 w-auto rounded"
+              src="{{ asset('logo/iamelse-logo-1.png') }}"
+              alt="Logo"
+          />
+          <span class="ps-1 text-3xl font-bold text-gray-900 dark:text-white">
+            Iamelse
+          </span>
+        </div>
       </span>
+
+      <!-- Logo icon when sidebar is toggled -->
       <img
-         class="logo-icon"
-         :class="sidebarToggle ? 'lg:block' : 'hidden'"
-         src="{{ asset('tailadmin/images/logo/logo-icon.svg') }}"
-         alt="Logo"
+          class="logo-icon"
+          :class="sidebarToggle ? 'lg:block rounded h-10 w-10' : 'hidden'"
+          src="{{ asset('logo/iamelse-logo-1.png') }}"
+          alt="Logo"
       />
-   </a>
+    </a>
 </div>
 <!-- SIDEBAR HEADER -->
 <div

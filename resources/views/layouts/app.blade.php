@@ -8,7 +8,7 @@
          />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>{{ $title ?? env('APP_NAME') }}</title>
-      <link rel="icon" href="{{ asset('tailadmin/images/favicon.ico') }}">
+      <link rel="icon" href="{{ asset('favicon/favicon.ico')  }}">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
       <meta name="csrf-token" content="{{ csrf_token() }}">

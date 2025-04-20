@@ -7,10 +7,10 @@
          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
          />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <link rel="icon" href="{{ asset('tailadmin/images/favicon.ico') }}">
+      <link rel="icon" href="{{ asset('favicon/favicon.ico')  }}">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <title>{{ $title ?? env('APP_NAME') }}</title>
-      
+
       @php
          use Illuminate\Support\Facades\App;
 
