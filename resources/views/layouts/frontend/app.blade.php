@@ -7,9 +7,9 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="{{ asset('tailadmin/images/favicon.ico') }}">
+    <link rel="icon" class="rounded" href="{{ asset('favicon/favicon.ico')  }}">
     <title>{{ $title ?? env('APP_NAME') }}</title>
-    
+
     @php
         use Illuminate\Support\Facades\App;
 
@@ -46,7 +46,7 @@
     "
     :class="{ 'dark bg-gray-900': darkMode === true }"
   >
-  
+
     @include('partials.frontend.navbar')
 
     @yield('content')
