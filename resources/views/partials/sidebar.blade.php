@@ -22,7 +22,7 @@
           </span>
         </div>
 
-          <!-- Dark mode logo -->
+        <!-- Dark mode logo -->
         <div class="flex items-center space-x-2 hidden dark:flex">
           <img
               class="h-10 w-auto rounded"
@@ -37,8 +37,8 @@
 
       <!-- Logo icon when sidebar is toggled -->
       <img
-          class="logo-icon"
-          :class="sidebarToggle ? 'lg:block rounded h-10 w-10' : 'hidden'"
+          class="logo-icon hidden lg:block rounded h-10 w-10"
+          :class="{ 'lg:block': sidebarToggle, 'lg:hidden': !sidebarToggle }"
           src="{{ asset('logo/iamelse-logo-1.png') }}"
           alt="Logo"
       />
@@ -206,7 +206,7 @@
             ->sortBy('order'); // Sort parents
          @endphp
 
-         <div>
+         <div class="mt-5 lg:mt-0">
             @foreach ($filteredMenus as $menu)
                <h3 class="mb-4 text-xs uppercase leading-[20px] text-gray-400">
                   {{ $menu['title'] }}

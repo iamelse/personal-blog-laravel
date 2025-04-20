@@ -65,13 +65,30 @@
             </svg>
          </button>
          <!-- Hamburger Toggle BTN -->
-         <a href="index.html" class="lg:hidden">
-         <img class="dark:hidden" src="{{ asset('tailadmin/images/logo/logo.svg') }}" alt="Logo" />
-         <img
-            class="hidden dark:block"
-            src="{{ asset('tailadmin/images/logo/logo-dark.svg') }}"
-            alt="Logo"
-            />
+         <a href="/" class="lg:hidden">
+             <!-- Light mode logo -->
+             <div class="flex items-center space-x-2 dark:hidden">
+                     <img
+                         class="h-8 w-auto rounded"
+                         src="{{ asset('logo/iamelse-logo-1.png') }}"
+                         alt="Logo"
+                     />
+                     <span class="ps-1 text-2xl font-bold text-gray-900 dark:text-white">
+                Iamelse
+              </span>
+             </div>
+
+             <!-- Dark mode logo -->
+             <div class="flex items-center space-x-2 hidden dark:flex">
+                 <img
+                     class="h-8 w-auto rounded"
+                     src="{{ asset('logo/iamelse-logo-1.png') }}"
+                     alt="Logo"
+                 />
+              <span class="ps-1 text-2xl font-bold text-gray-900 dark:text-white">
+                Iamelse
+              </span>
+             </div>
          </a>
          <!-- Application nav menu button -->
          <button
@@ -214,7 +231,7 @@
                </ul>
                <ul>
                   <li x-data>
-                     <a href="#" 
+                     <a href="#"
                         @click.prevent="$refs.logoutForm.submit()"
                         class="group flex items-center gap-3 rounded-lg px-3 py-2 text-theme-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                      Sign out
