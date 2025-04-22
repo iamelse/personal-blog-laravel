@@ -54,7 +54,7 @@
     @include('partials.frontend.footer')
 
     <!-- Toggler and Scroll to Top -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-1.5">
+    <div class="fixed bottom-8 right-6 z-50 flex flex-col gap-1.5">
         <!-- Dark Mode Toggler -->
         <button
           class="hover:text-dark-900 relative flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"

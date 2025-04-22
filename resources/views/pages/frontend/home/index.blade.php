@@ -26,7 +26,7 @@
   @endphp
 
   <!-- Hero Section -->
-  <section class="py-28 lg:py-56 text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
+  <section class="py-28 md:py-52 lg:py-56 text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
         {{ $heroContent['title'] }}
@@ -320,7 +320,7 @@
 
   <!-- Collaborate With Me Section -->
   <section id="collaborate" class="py-16 lg:py-32 bg-blue-600 text-white">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 bg-blue-700 p-8 rounded-3xl shadow-lg" data-aos="fade-up">
         <!-- Text Content -->
         <div class="flex-1 text-center md:text-left" data-aos="fade-right">
@@ -348,7 +348,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-gray-400"
+      <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
           data-aos="fade-up">
         Get in Touch
       </h2>

@@ -7,12 +7,12 @@
   <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Left Column: Social Media & About -->
     <div>
-      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-300">{{ $footerContent['title'] }}</h3>
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $footerContent['title'] }}</h3>
       <p class="mt-3 text-gray-500 dark:text-gray-400">
         {{ $footerContent['description'] }}
       </p>
 
-      <h3 class="mt-6 text-xl font-semibold text-gray-900 dark:text-gray-300">Follow Me</h3>
+      <h3 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Follow Me</h3>
       <!-- Social Media Links -->
       <div class="mt-3 flex flex-wrap gap-4 justify-start">
         @foreach ($socialMedia as $social)
@@ -25,7 +25,7 @@
 
     <!-- Right Column: Quick Links -->
     <div>
-      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-300">Quick Links</h3>
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Quick Links</h3>
       @if ($quickLinks->count() <= 6)</a>
         <ul class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
           @forelse ($quickLinks as $quickLink)
@@ -35,7 +35,7 @@
             </a>
           </li>
           @empty
-              
+
           @endforelse
         </ul>
       @else
@@ -47,7 +47,7 @@
             </a>
           </li>
           @empty
-              
+
           @endforelse
         </ul>
       @endif
