@@ -7,7 +7,7 @@
    <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between py-2.5 md:py-3.5 lg:py-4.5">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
          <img src="{{ asset('logo/iamelse-logo-1.png')  }}" class="h-10 rounded" alt="Iamelse Logo" />
-         <span class="block sm:hidden md:hidden lg:hidden self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-300">iamelse</span>
+         <span class="block sm:hidden md:hidden lg:hidden self-center text-2xl font-semibold whitespace-nowrap dark:text-white">iamelse</span>
       </a>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse py-1.5">
          @auth
