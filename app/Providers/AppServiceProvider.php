@@ -24,9 +24,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $footer = Section::where('name', 'footer')->first();
-        $socialMedia = Schema::hasTable('social_media') ? SocialMedia::all() : collect([]);
-        $quickLinks = Schema::hasTable('quick_links') ? QuickLink::all() : collect([]);
+        $footer = Schema::hasTable('sections')
+            ? Section::where('name', 'footer')->first()
+            : null;
+
+        $socialMedia = Schema::hasTable('social_media')
+            ? SocialMedia::all()
+            : collect([]);
+
+        $quickLinks = Schema::hasTable('quick_links')
+            ? QuickLink::all()
+            : collect([]);
 
         View::share([
             'footer' => $footer,

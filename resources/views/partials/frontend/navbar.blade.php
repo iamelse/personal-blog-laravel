@@ -64,20 +64,47 @@
          </button>
       </div>
       <div :class="sidebarToggle ? 'block' : 'hidden'" class="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-user">
-         <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-900 md:dark:bg-gray-800 dark:border-gray-700">
-            <li>
-               <a href="{{ route('fe.home.index') }}" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
-            </li>
-            <li>
-               <a href="{{ route('fe.about.index') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-300 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-            </li>
-            <li>
-               <a href="{{ route('fe.resume.index') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-300 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Resume</a>
-            </li>
-            <li>
-               <a href="{{ route('fe.post.index') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-300 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Post</a>
-            </li>
-         </ul>
+          @php
+              $menuItems = [
+                  [
+                      'active' => 'fe.hom',
+                      'route' => 'fe.home.index',
+                      'label' => 'Home',
+                  ],
+                  [
+                      'active' => 'fe.about',
+                      'route' => 'fe.about.index',
+                      'label' => 'About',
+                  ],
+                  [
+                      'active' => 'fe.resume',
+                      'route' => 'fe.resume.index',
+                      'label' => 'Resume',
+                  ],
+                  [
+                      'active' => 'fe.post',
+                      'route' => 'fe.post.index',
+                      'label' => 'Post',
+                  ],
+              ];
+          @endphp
+
+          <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-900 md:dark:bg-gray-800 dark:border-gray-700">
+              @foreach ($menuItems as $item)
+                  @php
+                      $isActive = request()->routeIs($item['active'] . '*');
+                  @endphp
+                  <li>
+                      <a href="{{ route($item['route']) }}"
+                         class="block py-2 px-3 rounded-sm md:bg-transparent md:p-0
+                      {{ $isActive
+                          ? 'text-white bg-blue-600 md:text-blue-600 md:dark:text-blue-600'
+                          : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-gray-300 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">
+                          {{ $item['label'] }}
+                      </a>
+                  </li>
+              @endforeach
+          </ul>
       </div>
    </div>
 </nav>
