@@ -40,7 +40,7 @@ class UserController extends Controller
             )->sort(
                 sort_by: $request->sort_by ?? 'name',
                 sort_order: $request->sort_order ?? 'ASC'
-            )->when($request->role, fn($query, $role) => 
+            )->when($request->role, fn($query, $role) =>
                 $query->whereHas('roles', fn($q) => $q->where('slug', $role))
             )
             ->paginate($request->query('limit') ?? 10);
@@ -78,7 +78,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         Gate::authorize(PermissionEnum::CREATE_USER->value);
-        
+
         try {
             DB::transaction(function () use ($request) {
                 $user = User::create([
@@ -132,13 +132,13 @@ class UserController extends Controller
                     'username' => $request->username,
                     'email' => $request->email,
                 ];
-    
+
                 if ($request->filled('password')) {
                     $updateData['password'] = Hash::make($request->password);
                 }
-    
+
                 $user->update($updateData);
-    
+
                 $user->syncRoles($request->role);
             });
 
@@ -194,7 +194,7 @@ class UserController extends Controller
             Gate::authorize(PermissionEnum::DELETE_USER->value);
 
             $userUsernamesArray = explode(',', $request->input('usernames', ''));
-            
+
             if (!empty($userUsernamesArray)) {
                 User::whereIn('username', $userUsernamesArray)->delete();
             }

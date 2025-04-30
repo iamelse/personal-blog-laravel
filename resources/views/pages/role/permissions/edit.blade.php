@@ -61,6 +61,7 @@
                             $groupAliases = [
                                 'Social' => 'Social Media',
                                 'Quick' => 'Quick Link',
+                                'Post' => 'Post Categories'
                             ];
                         @endphp
 

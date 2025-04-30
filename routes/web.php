@@ -20,6 +20,8 @@ Route::prefix('admin')->middleware('is.auth')->group(function () {
     include __DIR__ . '/web/backend/user.php';
     include __DIR__ . '/web/backend/social-media.php';
     include __DIR__. '/web/backend/quick-link.php';
+    include __DIR__. '/web/backend/post-category.php';
+    include __DIR__. '/web/backend/post.php';
 
     include __DIR__ . '/web/backend/user-profile.php';
 

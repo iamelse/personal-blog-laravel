@@ -37,11 +37,6 @@ enum RoleEnum: string
                 PermissionEnum::UPDATE_SKILL,
                 PermissionEnum::DELETE_SKILL,
 
-                PermissionEnum::CREATE_POST,
-                PermissionEnum::READ_POST,
-                PermissionEnum::UPDATE_POST,
-                PermissionEnum::DELETE_POST,
-
                 PermissionEnum::CREATE_USER,
                 PermissionEnum::READ_USER,
                 PermissionEnum::UPDATE_USER,
@@ -52,7 +47,17 @@ enum RoleEnum: string
                 PermissionEnum::UPDATE_ROLE,
                 PermissionEnum::DELETE_ROLE,
 
-                PermissionEnum::UPDATE_ROLE_PERMISSION
+                PermissionEnum::UPDATE_ROLE_PERMISSION,
+
+                PermissionEnum::CREATE_POST_CATEGORY,
+                PermissionEnum::READ_POST_CATEGORY,
+                PermissionEnum::UPDATE_POST_CATEGORY,
+                PermissionEnum::DELETE_POST_CATEGORY,
+
+                PermissionEnum::CREATE_POST,
+                PermissionEnum::READ_POST,
+                PermissionEnum::UPDATE_POST,
+                PermissionEnum::DELETE_POST,
             ],
             self::AUTHOR => [
                 PermissionEnum::READ_DASHBOARD,

@@ -33,11 +33,6 @@ enum PermissionEnum: string
     case UPDATE_SKILL = 'skills_update';
     case DELETE_SKILL = 'skills_delete';
 
-    case CREATE_POST = 'posts_create';
-    case READ_POST = 'posts_read';
-    case UPDATE_POST = 'posts_update';
-    case DELETE_POST = 'posts_delete';
-
     case CREATE_USER = 'users_create';
     case READ_USER = 'users_read';
     case UPDATE_USER = 'users_update';
@@ -48,6 +43,16 @@ enum PermissionEnum: string
     case UPDATE_ROLE = 'roles_update';
     case DELETE_ROLE = 'roles_delete';
     case UPDATE_ROLE_PERMISSION = 'roles_update_permission';
+
+    case CREATE_POST_CATEGORY = 'post_categories_create';
+    case READ_POST_CATEGORY = 'post_categories_read';
+    case UPDATE_POST_CATEGORY = 'post_categories_update';
+    case DELETE_POST_CATEGORY = 'post_categories_delete';
+
+    case CREATE_POST = 'posts_create';
+    case READ_POST = 'posts_read';
+    case UPDATE_POST = 'posts_update';
+    case DELETE_POST = 'posts_delete';
 
     public static function all(): array
     {
