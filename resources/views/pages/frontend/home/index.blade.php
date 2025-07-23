@@ -25,40 +25,40 @@
     $CTAContent = json_decode($callToAction->content ?? '{}', true);
   @endphp
 
-  <!-- Hero Section -->
-  <section class="py-28 md:py-52 lg:py-56 text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
-        {{ $heroContent['title'] }}
-      </h1>
-      <p class="mt-6 text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
-        {{ $heroContent['description'] }}
-      </p>
+      <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+          <h1 class="text-2xl sm:text-4xl md:text-4xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
+              {{ $heroContent['title'] }}
+          </h1>
+          <p class="mt-6 text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+              {{ $heroContent['description'] }}
+          </p>
 
-      <!-- Tech Stack Icons -->
-      <div class="mt-10 flex flex-wrap justify-center gap-6">
-          @forelse ($skills as $skill)
-            <div class="flex flex-col items-center">
-                <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
-                    <i class="{{ $skill->icon_class }} text-xl sm:text-3xl"></i>
-                </div>
-                <span class="mt-2 text-xs font-medium text-gray-500 dark:text-white">{{ $skill->name }}</span>
-            </div>
-          @empty
-              <p class="font-medium text-gray-500 dark:text-white">No Data</p>
-          @endforelse
-      </div>
+          <!-- Tech Stack Icons -->
+          <div class="mt-10 flex flex-wrap justify-center gap-6">
+              @forelse ($skills as $skill)
+                  <div class="flex flex-col items-center">
+                      <div class="p-2 sm:p-3 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center w-12 sm:w-16 h-12 sm:h-16">
+                          <i class="{{ $skill->icon_class }} text-xl sm:text-3xl"></i>
+                      </div>
+                      <span class="mt-2 text-xs font-medium text-gray-500 dark:text-white">{{ $skill->name }}</span>
+                  </div>
+              @empty
+                  <p class="font-medium text-gray-500 dark:text-white">No Data</p>
+              @endforelse
+          </div>
 
-      <!-- Buttons -->
-      <div class="mt-15 flex flex-wrap justify-center gap-3.5" data-aos="fade-up">
-          <a class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white" href="#post">
-              View Project
-          </a>
-          <a target="_blank" class="inline-flex items-center justify-center gap-2 rounded-lg border border-stroke-tertiary bg-white px-6 py-3 text-base font-medium text-text-color shadow-xs duration-200 hover:bg-gray-50 hover:text-gray-800 w-full sm:w-auto dark:bg-gray-800 dark:border-stroke-tertiary dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="https://demo.tailadmin.com">
-              View Post
-          </a>
+          <!-- Buttons -->
+          <div class="mt-15 flex flex-wrap justify-center gap-3.5" data-aos="fade-up">
+              <a class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white" href="#post">
+                  View Project
+              </a>
+              <a target="_blank" class="inline-flex items-center justify-center gap-2 rounded-lg border border-stroke-tertiary bg-white px-6 py-3 text-base font-medium text-text-color shadow-xs duration-200 hover:bg-gray-50 hover:text-gray-800 w-full sm:w-auto dark:bg-gray-800 dark:border-stroke-tertiary dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="https://demo.tailadmin.com">
+                  View Post
+              </a>
+          </div>
       </div>
-    </div>
   </section>
 
   <!-- About Section -->
