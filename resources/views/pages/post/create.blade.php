@@ -4,22 +4,22 @@
     <!-- ===== Main Content Start ===== -->
     <main>
         <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+
             <!-- Header Section -->
             <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Edit Post Category</h1>
-                    <p class="text-gray-600 dark:text-gray-400">Modify the post category details.</p>
+                    <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Create a Post Category</h1>
+                    <p class="text-gray-600 dark:text-gray-400">Add a new post category to the system.</p>
                 </div>
             </div>
 
             <!-- Form Section -->
             <div class="border-gray-100 p-5 dark:border-gray-800 sm:p-6">
                 <div class="rounded-2xl px-6 pb-8 pt-4 border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-                    <form action="{{ route('be.post-category.update', $postCategory->slug) }}" method="POST" x-data="{ name: '{{ $postCategory->name }}', slug: '{{ $postCategory->slug }}' }">
+                    <form action="{{ route('be.post-category.store') }}" method="POST" x-data="{ name: '', slug: '' }">
                         @csrf
-                        @method('PUT')
 
-                        <!-- Category Name -->
+                        <!-- Role Name -->
                         <div class="mt-4">
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                                 Category Name <span class="text-error-500">*</span>
@@ -29,7 +29,7 @@
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value="{{ $postCategory->name, old('name') }}"
+                                    value="{{ old('name') }}"
                                     x-model="name"
                                     @input="slug = name.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')"
                                     placeholder="Enter post category name"
@@ -39,8 +39,8 @@
                                     class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                     required>
                                 <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
-                                    @error('name') * {{ $message }} @enderror
-                                </span>
+                                @error('name') * {{ $message }} @enderror
+                            </span>
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                     type="text"
                                     id="slug"
                                     name="slug"
-                                    value="{{ old($postCategory->slug, old('slug')) }}"
+                                    value="{{ old('slug') }}"
                                     x-model="slug"
                                     placeholder="Slug is auto generated"
                                     :class="hasError
@@ -72,7 +72,7 @@
                         <div class="flex justify-end mt-6">
                             <button type="submit"
                                     class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
-                                Update Category
+                                Create Category
                             </button>
                         </div>
                     </form>

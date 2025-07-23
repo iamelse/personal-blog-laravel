@@ -10,8 +10,9 @@
       <title>{{ $title ?? env('APP_NAME') }}</title>
       <link rel="icon" href="{{ asset('favicon/favicon.ico')  }}">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
-      <meta name="csrf-token" content="{{ csrf_token() }}">
+       <meta name="csrf-token" content="{{ csrf_token() }}">
 
       @php
          use Illuminate\Support\Facades\App;

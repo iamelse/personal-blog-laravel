@@ -18,6 +18,10 @@
     "dependencies": {
         "@alpinejs/persist": "^3.14.8",
         "@tailwindcss/forms": "^0.5.10",
-        "alpinejs": "^3.14.8"
+        "@tiptap/core": "^2.11.9",
+        "@tiptap/pm": "^2.11.9",
+        "@tiptap/starter-kit": "^2.11.9",
+        "alpinejs": "^3.14.8",
+        "flowbite-typography": "^1.0.5"
     }
 }

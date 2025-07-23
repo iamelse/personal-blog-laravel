@@ -30,6 +30,11 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(PostCategory::class, 'post_category_id');
@@ -45,5 +50,31 @@ class Post extends Model
         return $this->published_at
             ? $this->published_at->format('d F Y') // e.g. "29 April 2025"
             : '';
+    }
+
+    /**
+     * Get the formmated user's created_at.
+     * @return Attribute
+     */
+    protected function formattedCreatedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->created_at
+                ? Carbon::parse($this->created_at)->format('d M, Y H:i')
+                : '[null]'
+        );
+    }
+
+    /**
+     * Get the formmated user's updated_at.
+     * @return Attribute
+     */
+    protected function formattedUpdatedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->updated_at
+                ? Carbon::parse($this->updated_at)->format('d M, Y H:i')
+                : '[null]'
+        );
     }
 }
