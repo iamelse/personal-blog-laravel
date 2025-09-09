@@ -15,18 +15,9 @@ class QuickLinkSeeder extends Seeder
     public function run(): void
     {
         $quickLinks = [
-            ['name' => 'Home', 'url' => 'https://yourwebsite.com'],
-            ['name' => 'About', 'url' => 'https://yourwebsite.com/about'],
-            ['name' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/iamelse'],
-            ['name' => 'GitHub', 'url' => 'https://github.com/iamelse'],
-            ['name' => 'Twitter', 'url' => 'https://twitter.com/iamelse'],
-            ['name' => 'Instagram', 'url' => 'https://instagram.com/iamelse'],
-            ['name' => 'Facebook', 'url' => 'https://facebook.com/iamelse'],
-            ['name' => 'YouTube', 'url' => 'https://youtube.com/iamelse'],
-            ['name' => 'Reddit', 'url' => 'https://reddit.com/u/iamelse'],
-            ['name' => 'TikTok', 'url' => 'https://tiktok.com/@iamelse'],
-            ['name' => 'Snapchat', 'url' => 'https://snapchat.com/add/iamelse'],
-            ['name' => 'Pinterest', 'url' => 'https://pinterest.com/iamelse'],
+            ['name' => 'Home', 'url' => config('app.url')],
+            ['name' => 'About', 'url' => config('app.url') . '/about'],
+            ['name' => 'Post', 'url' => config('app.url') . '/post'],
         ];
 
         foreach ($quickLinks as &$quickLink) {
