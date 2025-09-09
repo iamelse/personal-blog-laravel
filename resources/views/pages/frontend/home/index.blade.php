@@ -25,10 +25,10 @@
     $CTAContent = json_decode($callToAction->content ?? '{}', true);
   @endphp
 
-      <!-- Hero Section -->
+  <!-- Hero Section -->
   <section class="min-h-screen flex items-center justify-center text-center bg-gray-50 dark:bg-gray-900 transition-colors" data-aos="fade-up">
       <div class="max-w-6xl mx-auto px-6">
-          <h1 class="text-2xl sm:text-4xl md:text-4xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
+          <h1 class="text-3xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
               {{ $heroContent['title'] }}
           </h1>
           <p class="mt-6 text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
@@ -62,7 +62,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 lg:py-32 text-center bg-white dark:bg-gray-800 transition-colors">
+  <section id="about" class="min-h-screen py-16 lg:py-32 text-center bg-white dark:bg-gray-800 transition-colors">
     <div class="max-w-6xl mx-auto px-6">
       <h2 data-aos="fade-up" class="py-2 lg:py-10 text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
         {{ $aboutContent['title'] }}
@@ -94,7 +94,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors">
+  <section id="services" class="min-h-screen py-16 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors">
       <div class="max-w-6xl mx-auto px-6">
           <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
               data-aos="fade-up">
@@ -182,7 +182,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
+  <section id="projects" class="min-h-screen py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
       <div class="max-w-6xl mx-auto px-6 text-center">
           <h2 class="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white" data-aos="fade-up">
               My Projects
@@ -225,7 +225,7 @@
   </section>
 
   <!-- Post Section -->
-  <section id="posts" class="py-16 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors">
+  <section id="posts" class="min-h-screen py-16 lg:py-32 bg-gray-50 dark:bg-gray-800 transition-colors">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
           data-aos="fade-up">
@@ -236,84 +236,40 @@
         Explore my latest articles covering web development, Laravel, and more.
       </p>
       <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Post Card -->
-        <div class="border border-gray-200 dark:border-gray-700 rounded-3xl p-2.5 bg-white dark:bg-gray-700 flex flex-col"
-             data-aos="zoom-in" data-aos-delay="{{ 200 }}">
-          <img src="https://picsum.photos/400/250?random=1" alt="Post Image"
-               class="w-full rounded-2xl aspect-[16/9] object-cover">
-          <div class="flex flex-col flex-grow p-3">
-            <h3 class="text-2xl py-2 font-semibold">
-              <a href="#" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
-                Understanding Laravel Eloquent Relationships
-              </a>
-            </h3>
-            <p class="my-2 text-gray-500 dark:text-gray-400 flex-grow">
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-            </p>
-            <div class="mt-4">
-              <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white">
-                Read More
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
 
-        <!-- Post Card -->
-        <div class="border border-gray-200 dark:border-gray-700 rounded-3xl p-2.5 bg-white dark:bg-gray-700 flex flex-col"
-             data-aos="zoom-in" data-aos-delay="{{ 2 * 300 }}">
-          <img src="https://picsum.photos/400/250?random=2" alt="Post Image"
-               class="w-full rounded-2xl aspect-[16/9] object-cover">
-          <div class="flex flex-col flex-grow p-3">
-            <h3 class="text-2xl py-2 font-semibold">
-              <a href="#" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
-                Understanding Laravel Eloquent Relationships
-              </a>
-            </h3>
-            <p class="my-2 text-gray-500 dark:text-gray-400 flex-grow">
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-            </p>
-            <div class="mt-4">
-              <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white">
-                Read More
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+          @forelse ($posts as $post)
+              <!-- Post Card -->
+              <div class="border border-gray-200 dark:border-gray-700 rounded-3xl p-2.5 bg-white dark:bg-gray-700 flex flex-col"
+                   data-aos="zoom-in" data-aos-delay="{{ 200 }}">
+                  <img src="{{ $post->thumbnail ?? 'https://picsum.photos/400/250?random=' . $loop->iteration }}" alt="Post Image"
+                       class="w-full rounded-2xl aspect-[16/9] object-cover" loading="lazy">
+                  <div class="flex flex-col flex-grow p-3">
+                      <h3 class="text-2xl py-2 font-semibold">
+                          <a href="{{ route('fe.post.show', $post->slug) }}"
+                             class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
+                              {{ $post->title }}
+                          </a>
+                      </h3>
+                      <p class="my-2 text-gray-500 dark:text-gray-400 flex-grow">
+                          {{ Str::limit($post->excerpt, 150) }}
+                      </p>
+                      <div class="mt-4">
+                          <a href="{{ route('fe.post.show', $post->slug) }}"
+                             class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white">
+                              Read More
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                   stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                              </svg>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          @empty
+              <p class="text-gray-500 dark:text-gray-400">No posts found.</p>
+          @endforelse
 
-        <!-- Post Card -->
-        <div class="border border-gray-200 dark:border-gray-700 rounded-3xl p-2.5 bg-white dark:bg-gray-700 flex flex-col"
-             data-aos="zoom-in" data-aos-delay="{{ 3 * 300 }}">
-          <img src="https://picsum.photos/400/250?random=3" alt="Post Image"
-               class="w-full rounded-2xl aspect-[16/9] object-cover">
-          <div class="flex flex-col flex-grow p-3">
-            <h3 class="text-2xl py-2 font-semibold">
-              <a href="#" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
-                Understanding Laravel Eloquent Relationships
-              </a>
-            </h3>
-            <p class="my-2 text-gray-500 dark:text-gray-400 flex-grow">
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-              Learn how to work with Laravel Eloquent relationships effectively for better database management.
-            </p>
-            <div class="mt-4">
-              <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-xs duration-200 hover:bg-blue-700 w-full sm:w-auto dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white">
-                Read More
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Repeat for other post cards with different `data-aos` effects -->
+          <!-- Repeat for other post cards with different `data-aos` effects -->
       </div>
     </div>
   </section>
@@ -346,7 +302,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
+  <section id="contact" class="min-h-screen py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
           data-aos="fade-up">

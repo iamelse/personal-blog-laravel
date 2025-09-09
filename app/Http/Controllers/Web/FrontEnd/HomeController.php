@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\Section;
 use App\Models\Skill;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class HomeController extends Controller
         $hero = Section::where('name', 'hero')->firstOrFail();
         $about = Section::where('name', 'about')->firstOrFail();
         $skills = Skill::limit(10)->get();
+        $posts = Post::limit(6)->orderBy('created_at')->get();
         $callToAction = Section::where('name','cta')->firstOrFail();
 
         return view('pages.frontend.home.index', [
@@ -22,6 +24,7 @@ class HomeController extends Controller
             'hero' => $hero,
             'about' => $about,
             'skills' => $skills,
+            'posts' => $posts,
             'callToAction' => $callToAction
         ]);
     }
