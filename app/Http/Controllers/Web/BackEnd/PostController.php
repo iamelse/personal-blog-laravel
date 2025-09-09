@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\BackEnd;
 
 use App\Enums\PermissionEnum;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Web\Post\StorePostRequest;
 use App\Http\Requests\Web\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -57,6 +58,43 @@ class PostController extends Controller
             'limits' => $limits,
             'postCategories' => $postCategories
         ]);
+    }
+
+    public function create(): View
+    {
+        Gate::authorize(PermissionEnum::CREATE_POST->value);
+
+        $postCategories = PostCategory::all();
+
+        return view('pages.post.create', [
+            'title' => 'Create Post',
+            'postCategories' => $postCategories
+        ]);
+    }
+
+    public function store(StorePostRequest $request): RedirectResponse
+    {
+        Gate::authorize(PermissionEnum::CREATE_POST->value);
+
+        try {
+            $validatedData = $request->validated();
+
+            $validatedData['user_id'] = auth()->id();
+
+            Post::create($validatedData);
+
+            return redirect()->route('be.post.index')
+                ->with('success', 'Post created successfully.');
+        } catch (AuthorizationException $authorizationException) {
+            Log::error($authorizationException->getMessage());
+
+            abort(403, 'This action is unauthorized.');
+        } catch (\Exception $exception) {
+            Log::error($exception->getMessage());
+
+            return redirect()->route('be.post.index')
+                ->with('error', $exception->getMessage());
+        }
     }
 
     public function edit(Post $post): View

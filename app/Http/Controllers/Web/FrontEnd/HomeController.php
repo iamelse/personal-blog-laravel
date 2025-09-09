@@ -16,7 +16,7 @@ class HomeController extends Controller
         $hero = Section::where('name', 'hero')->firstOrFail();
         $about = Section::where('name', 'about')->firstOrFail();
         $skills = Skill::limit(10)->get();
-        $posts = Post::limit(6)->orderBy('created_at')->get();
+        $posts = Post::limit(6)->orderBy('created_at')->where('status', 'published')->get();
         $callToAction = Section::where('name','cta')->firstOrFail();
 
         return view('pages.frontend.home.index', [

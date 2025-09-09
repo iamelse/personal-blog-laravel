@@ -28,6 +28,10 @@ Route::prefix('admin')->middleware('is.auth')->group(function () {
     include __DIR__ . '/web/backend/home.php';
     include __DIR__ . '/web/backend/about.php';
     include __DIR__ . '/web/backend/resume.php';
+
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 });
 
 

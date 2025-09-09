@@ -16,6 +16,7 @@
         "laravolt/avatar": "^6.1",
         "opcodesio/log-viewer": "^3.15",
         "spatie/laravel-permission": "^6.16",
+        "unisharp/laravel-filemanager": "^2.10",
         "yogameleniawan/search-sort-eloquent": "^1.2"
     },
     "require-dev": {

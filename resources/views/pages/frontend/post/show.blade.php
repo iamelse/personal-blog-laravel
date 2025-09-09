@@ -65,9 +65,6 @@
             </div>
 
             <div class="mx-auto max-w-[770px]">
-                <p class="mb-4 text-base text-gray-600 dark:text-white">
-                    {!! $post->body !!}
-                </p>
                 {!! $post->body !!}
             </div>
         </div>

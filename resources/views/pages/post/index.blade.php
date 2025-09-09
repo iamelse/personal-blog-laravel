@@ -238,7 +238,29 @@
                                     <td class="w-20 px-4 py-3">{{ $loop->iteration }}</td>
                                     <td class="px-4 py-3">{{ $post->title }}</td>
                                     <td class="px-4 py-3">{{ $post->category->name }}</td>
-                                    <td class="px-4 py-3">{{ $post->status }}</td>
+                                    <td class="px-4 py-3">
+                                        @switch($post->status)
+                                            @case('published')
+                                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                                                    bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                                    Published
+                                                </span>
+                                                @break
+
+                                            @case('draft')
+                                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                                                    bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                                    Draft
+                                                </span>
+                                                @break
+
+                                            @default
+                                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                                                    bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+                                                    {{ ucfirst($post->status) }}
+                                                </span>
+                                        @endswitch
+                                    </td>
                                     <td class="px-4 py-3">{{ $post->formatted_created_at }}</td>
                                     <td class="px-4 py-3">{{ $post->formatted_updated_at }}</td>
                                     <td class="px-4 py-3 text-center relative">

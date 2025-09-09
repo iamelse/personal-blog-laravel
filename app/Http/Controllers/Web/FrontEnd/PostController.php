@@ -22,7 +22,8 @@ class PostController extends Controller
             sort_order: $request->sort_order ?? 'DESC'
         )->when($request->category, fn($query, $category) =>
             $query->whereHas('category', fn($q) => $q->where('slug', $category))
-        )->paginate($request->query('limit') ?? 6);
+        )->where('status', 'published')
+        ->paginate($request->query('limit') ?? 6);
 
         return view('pages.frontend.post.index', [
             'title' => 'All Post',
@@ -33,6 +34,10 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        if ($post->status !== 'published') {
+            abort(404);
+        }
+
         return view('pages.frontend.post.show', [
             'title' => $post->title,
             'post' => $post,

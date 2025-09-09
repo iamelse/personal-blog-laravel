@@ -151,16 +151,7 @@
                                             Toggle highlight
                                             <div class="tooltip-arrow" data-popper-arrow></div>
                                         </div>
-                                        <button id="toggleCodeButton" type="button" data-tooltip-target="tooltip-code" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>
-                                            </svg>
-                                            <span class="sr-only">Code</span>
-                                        </button>
-                                        <div id="tooltip-code" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                            Format code
-                                            <div class="tooltip-arrow" data-popper-arrow></div>
-                                        </div>
+
                                         <button id="toggleLinkButton" data-tooltip-target="tooltip-link" type="button" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                                             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
@@ -287,7 +278,7 @@
                                         <div id="fontFamilyDropdown" class="z-10 hidden w-48 rounded-sm bg-white p-2 shadow-sm dark:bg-gray-700">
                                             <ul class="space-y-1 text-sm font-medium" aria-labelledby="toggleFontFamilyButton">
                                                 <li>
-                                                    <button data-font-family="Inter, ui-sans-serif" type="button" class="flex justify-between items-center w-full text-sm font-sans rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Default
+                                                    <button data-font-family="Outfit, ui-sans-serif" type="button" class="flex justify-between items-center w-full text-sm font-sans rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Default
                                                     </button>
                                                 </li>
                                                 <li>
@@ -357,6 +348,16 @@
                                             Align right
                                             <div class="tooltip-arrow" data-popper-arrow></div>
                                         </div>
+                                        <button id="toggleJustifyAlignButton" type="button" data-tooltip-target="tooltip-justify-align" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                                            </svg>
+                                            <span class="sr-only">Align justify</span>
+                                        </button>
+                                        <div id="tooltip-justify-align" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                            Align justify
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 pt-2 flex-wrap">
@@ -382,7 +383,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button data-heading-level="1" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 1
+                                                <button id="heading1" data-heading-level="1" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 1
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -391,7 +392,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button  data-heading-level="2" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 2
+                                                <button id="heading2" data-heading-level="2" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 2
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -400,7 +401,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button  data-heading-level="3" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 3
+                                                <button id="heading3" data-heading-level="3" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 3
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -409,7 +410,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button  data-heading-level="4" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 4
+                                                <button id="heading4" data-heading-level="4" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 4
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -418,7 +419,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button data-heading-level="5" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 5
+                                                <button id="heading5" data-heading-level="5" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 5
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -427,7 +428,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button  data-heading-level="6" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 6
+                                                <button id="heading6" data-heading-level="6" type="button" class="flex justify-between items-center w-full text-base rounded-sm px-3 py-2 hover:bg-gray-100 text-gray-900 dark:hover:bg-gray-600 dark:text-white">Heading 6
                                                     <div class="space-x-1.5">
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Cmd</kbd>
                                                         <kbd class="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-500">Alt</kbd>
@@ -437,25 +438,41 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <!-- File Manager Button (folder) -->
+                                    <button id="lfmImageButton"
+                                            type="button"
+                                            data-tooltip-target="tooltip-lfm"
+                                            class="p-1.5 rounded-sm text-gray-500 hover:text-gray-900 hover:bg-gray-100
+                                                dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600
+                                                  inline-flex items-center">
+                                        <i class="bx bx-image-add text-xl leading-none"></i>
+                                        <span class="sr-only">Add image</span>
+                                    </button>
+                                    <div id="tooltip-lfm" role="tooltip"
+                                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white
+                                                bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
+                                        Add image
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
                                     <button id="addImageButton" type="button" data-tooltip-target="tooltip-image" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
                                             <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span class="sr-only">Add image</span>
+                                        <span class="sr-only">Embed image</span>
                                     </button>
                                     <div id="tooltip-image" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                        Add image
+                                        Embed image
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     <button id="addVideoButton" type="button" data-tooltip-target="tooltip-video" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-2 4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9Zm0 2h2v2H9v-2Zm7.965-.557a1 1 0 0 0-1.692-.72l-1.268 1.218a1 1 0 0 0-.308.721v.733a1 1 0 0 0 .37.776l1.267 1.032a1 1 0 0 0 1.631-.776v-2.984Z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span class="sr-only">Add video</span>
+                                        <span class="sr-only">Embed video</span>
                                     </button>
                                     <div id="tooltip-video" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700">
-                                        Add video
+                                        Embed video
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     <button id="toggleListButton" type="button" data-tooltip-target="tooltip-list" class="p-1.5 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
@@ -505,7 +522,7 @@
                                 <label for="wysiwyg-example" class="sr-only">Publish post</label>
                                 <div id="wysiwyg-example"class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"></div>
                             </div>
-                            <textarea id="hidden-textarea" name="body" class="hidden"></textarea>
+                            <textarea id="hidden-textarea" name="body" class="hidden">{{ old('body', $post->body) }}</textarea>
                         </div>
 
                         <!-- Post Category -->
@@ -566,6 +583,105 @@
         </div>
     </main>
     <!-- ===== Main Content End ===== -->
+
+    <!-- Backdrop + Modal -->
+    <div id="imgOptionsModal"
+         class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
+        <!-- Modal box -->
+        <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-[400px] mx-auto mt-20">
+
+            <!-- Close Button -->
+            <button id="closeImgOptionsBtn"
+                    data-modal-hide="imgOptionsModal"
+                    class="absolute top-3 right-3 text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                <i class="bx bx-x text-2xl"></i>
+                <span class="sr-only">Close</span>
+            </button>
+
+            <!-- Modal Content -->
+            <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
+                Picture
+                <span id="imgOptionsUrl"
+                      class="block text-xs font-normal text-gray-500 dark:text-gray-400 break-all mt-1">
+                            <!-- Selected image URL will appear here -->
+                        </span>
+            </h2>
+
+            <form id="imgOptionsForm" class="space-y-4">
+
+                <!-- Width & Height -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+                            Width
+                        </label>
+                        <input name="width" type="text" placeholder="px / %"
+                               class="w-full rounded-md border-gray-300 dark:border-gray-600
+                                           focus:border-blue-500 focus:ring-blue-500 text-sm
+                                           dark:bg-gray-700 dark:text-gray-200">
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            Set the image width in pixels (e.g., 300) or percentage (e.g., 50%). Leave empty for auto width.
+                        </p>
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+                            Height
+                        </label>
+                        <input name="height" type="text" placeholder="px / %"
+                               class="w-full rounded-md border-gray-300 dark:border-gray-600
+                                           focus:border-blue-500 focus:ring-blue-500 text-sm
+                                           dark:bg-gray-700 dark:text-gray-200">
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            Set the image height in pixels or percentage. Leave empty for auto height.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Alt Text -->
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Alt text
+                    </label>
+                    <input name="alt" type="text"
+                           class="w-full rounded-md border-gray-300 dark:border-gray-600
+                                       focus:border-blue-500 focus:ring-blue-500 text-sm
+                                       dark:bg-gray-700 dark:text-gray-200">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Describe the image for accessibility and SEO purposes.
+                    </p>
+                </div>
+
+                <!-- CSS Class -->
+                <div>
+                    <label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        CSS class
+                    </label>
+                    <input name="class" type="text"
+                           class="w-full rounded-md border-gray-300 dark:border-gray-600
+                                       focus:border-blue-500 focus:ring-blue-500 text-sm
+                                       dark:bg-gray-700 dark:text-gray-200">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Add optional custom CSS classes (e.g., <code>rounded-lg</code>, <code>shadow-md</code>).
+                    </p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-end space-x-3 mt-4">
+                    <button type="button"
+                            id="cancelImgOptionsBtn"
+                            data-modal-hide="imgOptionsModal"
+                            class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg
+                                        hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        Insert
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @section('bottom-scripts')
@@ -606,6 +722,10 @@
         });
     </script>
     <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+    <!-- Inject content into JS -->
+    <script>
+        window.__postBody = {!! json_encode(old('body', $post->body)) !!};
+    </script>
     <script type="module">
         import { Editor } from 'https://esm.sh/@tiptap/core@2.6.6';
         import StarterKit from 'https://esm.sh/@tiptap/starter-kit@2.6.6';
@@ -618,226 +738,489 @@
         import TextStyle from 'https://esm.sh/@tiptap/extension-text-style@2.6.6';
         import FontFamily from 'https://esm.sh/@tiptap/extension-font-family@2.6.6';
         import { Color } from 'https://esm.sh/@tiptap/extension-color@2.6.6';
-        import Bold from 'https://esm.sh/@tiptap/extension-bold@2.6.6'; // Import the Bold extension
 
+        import Paragraph from 'https://esm.sh/@tiptap/extension-paragraph@2.6.6';
+        import BulletList from 'https://esm.sh/@tiptap/extension-bullet-list@2.6.6';
+        import OrderedList from 'https://esm.sh/@tiptap/extension-ordered-list@2.6.6';
+        import ListItem from 'https://esm.sh/@tiptap/extension-list-item@2.6.6';
+        import Blockquote from 'https://esm.sh/@tiptap/extension-blockquote@2.6.6';
+        import Code from 'https://esm.sh/@tiptap/extension-code@2.6.6';
+        import Bold from 'https://esm.sh/@tiptap/extension-bold@2.6.6';
+        import Heading from 'https://esm.sh/@tiptap/extension-heading@2.6.6';
 
-        window.addEventListener('load', function() {
-            if (document.getElementById("wysiwyg-example")) {
+        window.addEventListener('load', function () {
+            const editorElement = document.getElementById("wysiwyg-example");
+            const textarea = document.getElementById("hidden-textarea");
 
-                const FontSizeTextStyle = TextStyle.extend({
-                    addAttributes() {
-                        return {
-                            fontSize: {
-                                default: null,
-                                parseHTML: element => element.style.fontSize,
-                                renderHTML: attributes => {
-                                    if (!attributes.fontSize) {
-                                        return {};
-                                    }
-                                    return { style: 'font-size: ' + attributes.fontSize };
-                                },
+            if (!editorElement || !textarea) return;
+
+            const ImageWithSize = Image.extend({
+                addAttributes() {
+                    return {
+                        ...this.parent?.(),
+                        src: { default: null },
+                        alt: {
+                            default: '',
+                            parseHTML: element => element.getAttribute('alt'),
+                            renderHTML: attributes => {
+                                if (!attributes.alt) return {};
+                                return { alt: attributes.alt };
                             },
-                        };
-                    },
-                });
-                const CustomBold = Bold.extend({
-                    // Override the renderHTML method
-                    renderHTML({ mark, HTMLAttributes }) {
-                        const { style, ...rest } = HTMLAttributes;
-
-                        // Merge existing styles with font-weight
-                        const newStyle = 'font-weight: bold;' + (style ? ' ' + style : '');
-
-                        return ['span', { ...rest, style: newStyle.trim() }, 0];
-                    },
-                    // Ensure it doesn't exclude other marks
-                    addOptions() {
-                        return {
-                            ...this.parent?.(),
-                            HTMLAttributes: {},
-                        };
-                    },
-                });
-                // tip tap editor setup
-                const editor = new Editor({
-                    element: document.querySelector('#wysiwyg-example'),
-                    extensions: [
-                        StarterKit.configure({
-                            textStyle: false,
-                            bold: false,
-                            marks: {
-                                bold: false,
-                            },
-                        }),
-                        // Include the custom Bold extension
-                        CustomBold,
-                        //TextStyle,
-                        Color,
-                        FontSizeTextStyle,
-                        FontFamily,
-                        Highlight,
-                        Underline,
-                        Link.configure({
-                            openOnClick: false,
-                            autolink: true,
-                            defaultProtocol: 'https',
-                        }),
-                        TextAlign.configure({
-                            types: ['heading', 'paragraph'],
-                        }),
-                        Image,
-                        YouTube,
-                    ],
-                    content: @json($post->body),
-                    editorProps: {
-                        attributes: {
-                            class: 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
                         },
-                    }
-                });
+                        style: {
+                            default: null,
+                            parseHTML: element => element.getAttribute('style'),
+                            renderHTML: attributes => {
+                                if (!attributes.style) return {};
+                                return { style: attributes.style };
+                            },
+                        },
+                        class: {
+                            default: 'rounded-lg shadow-sm max-w-full h-auto bg-gray-100 dark:bg-gray-800',
+                            parseHTML: element => element.getAttribute('class'),
+                            renderHTML: attributes => {
+                                if (!attributes.class) return {};
+                                return { class: attributes.class };
+                            },
+                        },
+                        width: {
+                            default: null,
+                            parseHTML: element => element.getAttribute('width'),
+                            renderHTML: attributes => {
+                                if (!attributes.width) return {};
+                                return { width: attributes.width };
+                            },
+                        },
+                        height: {
+                            default: null,
+                            parseHTML: element => element.getAttribute('height'),
+                            renderHTML: attributes => {
+                                if (!attributes.height) return {};
+                                return { height: attributes.height };
+                            },
+                        },
+                    };
+                },
+            });
 
-                // Handle form submission
-                const form = document.getElementById('edit-post-form');
-                const textarea = document.getElementById('hidden-textarea');
+            const FontSizeTextStyle = TextStyle.extend({
+                addAttributes() {
+                    return {
+                        fontSize: {
+                            default: null,
+                            parseHTML: element => element.style.fontSize,
+                            renderHTML: attributes => {
+                                if (!attributes.fontSize) return {};
+                                return { style: 'font-size: ' + attributes.fontSize };
+                            },
+                        },
+                    };
+                },
+            });
 
-                if (form && textarea) {
-                    form.addEventListener('submit', function () {
-                        textarea.value = editor.getHTML();
-                        console.log("Submitting body content:", textarea.value);
-                    });
+            // Custom Extensions with Tailwind Classes
+            const CustomBold = Bold.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['strong', { ...HTMLAttributes }, 0];
+                },
+            });
+
+            const CustomParagraph = Paragraph.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['p', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                m-0 mb-4 text-base text-gray-600 dark:text-gray-300`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomBulletList = BulletList.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['ul', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                mb-4 text-base text-gray-600 dark:text-gray-300 list-disc pl-6`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomOrderedList = OrderedList.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['ol', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                mb-4 text-base text-gray-600 dark:text-gray-300 list-decimal pl-6`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomListItem = ListItem.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['li', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                text-base text-gray-600 dark:text-gray-300`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomBlockquote = Blockquote.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['blockquote', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                mb-4 border-l-4 border-gray-300 dark:border-gray-600
+                pl-4 italic text-base text-gray-600 dark:text-gray-300`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomCode = Code.extend({
+                renderHTML({ HTMLAttributes }) {
+                    return ['code', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                text-sm bg-gray-100 dark:bg-gray-800
+                text-red-600 dark:text-red-400
+                font-mono px-1.5 py-0.5 rounded`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomLink = Link.extend({
+                addOptions() {
+                    return {
+                        ...this.parent?.(),
+                        openOnClick: false,
+                        autolink: true,
+                        defaultProtocol: 'https',
+                    };
+                },
+                renderHTML({ HTMLAttributes }) {
+                    return ['a', {
+                        ...HTMLAttributes,
+                        class: `${HTMLAttributes.class || ''}
+                text-blue-600 dark:text-blue-400
+                underline hover:text-blue-800 dark:hover:text-blue-300 transition`.trim(),
+                    }, 0];
+                },
+            });
+
+            const CustomHeading = Heading.extend({
+                renderHTML({ node, HTMLAttributes }) {
+                    const level = this.options.levels.includes(node.attrs.level)
+                        ? node.attrs.level
+                        : this.options.levels[0];
+
+                    return [
+                        'h' + level,
+                        {
+                            ...HTMLAttributes,
+                            class: `${HTMLAttributes.class || ''}
+                    font-bold mb-3 text-gray-800 dark:text-gray-100`.trim(),
+                        },
+                        0,
+                    ];
+                },
+            });
+
+            const editor = new Editor({
+                element: editorElement,
+                content: window.__postBody || '',
+                extensions: [
+                    StarterKit.configure({
+                        heading: false,
+                        paragraph: false,
+                        bulletList: false,
+                        orderedList: false,
+                        listItem: false,
+                        textStyle: false,
+                        bold: false,
+                        marks: { bold: false },
+                    }),
+                    CustomHeading,
+                    CustomBold,
+                    CustomParagraph,
+                    CustomBulletList,
+                    CustomOrderedList,
+                    CustomListItem,
+                    CustomBlockquote,
+                    CustomCode,
+                    CustomLink,
+                    FontSizeTextStyle,
+                    FontFamily,
+                    Color,
+                    Highlight,
+                    Underline,
+                    TextAlign.configure({ types: ['heading', 'paragraph'] }),
+                    Image,
+                    ImageWithSize,
+                    YouTube,
+                ],
+                editorProps: {
+                    attributes: {
+                        class: 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none text-base text-gray-600 dark:text-gray-300',
+                    },
+                },
+                onUpdate({ editor }) {
+                    textarea.value = editor.getHTML();
+                    updateActiveButtons();
+                },
+                onSelectionUpdate({ editor }) {
+                    updateActiveButtons();
+                },
+            });
+
+            function updateActiveButtons() {
+                const activeCheck = (id, isActive) => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.classList.toggle('bg-blue-100', isActive);
+                    el.classList.toggle('text-blue-800', isActive);
+                };
+
+                // Inline styles
+                activeCheck('toggleBoldButton', editor.isActive('bold'));
+                activeCheck('toggleItalicButton', editor.isActive('italic'));
+                activeCheck('toggleUnderlineButton', editor.isActive('underline'));
+                activeCheck('toggleStrikeButton', editor.isActive('strike'));
+                activeCheck('toggleHighlightButton', editor.isActive('highlight'));
+                activeCheck('toggleLinkButton', editor.isActive('link'));
+                activeCheck('toggleCodeButton', editor.isActive('code'));
+
+                // Alignment
+                activeCheck('toggleLeftAlignButton', editor.isActive({ textAlign: 'left' }));
+                activeCheck('toggleCenterAlignButton', editor.isActive({ textAlign: 'center' }));
+                activeCheck('toggleRightAlignButton', editor.isActive({ textAlign: 'right' }));
+                activeCheck('toggleJustifyAlignButton', editor.isActive({ textAlign: 'justify' }));
+
+                // Block elements
+                activeCheck('toggleListButton', editor.isActive('bulletList'));
+                activeCheck('toggleOrderedListButton', editor.isActive('orderedList'));
+                activeCheck('toggleBlockquoteButton', editor.isActive('blockquote'));
+
+                // Heading levels
+                for (let level = 1; level <= 6; level++) {
+                    activeCheck(`heading${level}`, editor.isActive('heading', { level }));
                 }
 
-                // set up custom event listeners for the buttons
-                document.getElementById('toggleBoldButton').addEventListener('click', () => editor.chain().focus().toggleBold().run());
-                document.getElementById('toggleItalicButton').addEventListener('click', () => editor.chain().focus().toggleItalic().run());
-                document.getElementById('toggleUnderlineButton').addEventListener('click', () => editor.chain().focus().toggleUnderline().run());
-                document.getElementById('toggleStrikeButton').addEventListener('click', () => editor.chain().focus().toggleStrike().run());
-                document.getElementById('toggleHighlightButton').addEventListener('click', () => {
-                    const isHighlighted = editor.isActive('highlight');
-                    // when using toggleHighlight(), judge if is is already highlighted.
-                    editor.chain().focus().toggleHighlight({
-                        color: isHighlighted ? undefined : '#ffc078' // if is already highlighted，unset the highlight color
-                    }).run();
-                });
+                // Paragraph
+                activeCheck('toggleParagraphButton', editor.isActive('paragraph'));
 
-                document.getElementById('toggleLinkButton').addEventListener('click', () => {
-                    const url = window.prompt('Enter image URL:', 'https://flowbite.com');
-                    editor.chain().focus().toggleLink({ href: url }).run();
-                });
-                document.getElementById('removeLinkButton').addEventListener('click', () => {
-                    editor.chain().focus().unsetLink().run()
-                });
-                document.getElementById('toggleCodeButton').addEventListener('click', () => {
-                    editor.chain().focus().toggleCode().run();
+                // Format status (optional)
+                const status = [];
+                if (editor.isActive('bold')) status.push('bold');
+                if (editor.isActive('italic')) status.push('italic');
+                if (editor.isActive('underline')) status.push('underline');
+                if (editor.isActive('strike')) status.push('strike');
+                if (editor.isActive('highlight')) status.push('highlight');
+                if (editor.isActive('link')) status.push('link');
+                if (editor.isActive('code')) status.push('code');
+                if (editor.isActive('bulletList')) status.push('ul');
+                if (editor.isActive('orderedList')) status.push('ol');
+                if (editor.isActive('blockquote')) status.push('blockquote');
+                for (let level = 1; level <= 6; level++) {
+                    if (editor.isActive('heading', { level })) status.push(`h${level}`);
+                }
+                if (editor.isActive('paragraph')) status.push('paragraph');
+
+                const statusBox = document.getElementById('formatStatus');
+                if (statusBox) statusBox.textContent = status.join(' + ') || 'none';
+            }
+
+            // Sync content on form submission
+            document.querySelector('form')?.addEventListener('submit', () => {
+                textarea.value = editor.getHTML();
+            });
+
+            // Button handlers (unchanged from your code)
+            document.getElementById('toggleBoldButton')?.addEventListener('click', () => editor.chain().focus().toggleBold().run());
+            document.getElementById('toggleItalicButton')?.addEventListener('click', () => editor.chain().focus().toggleItalic().run());
+            document.getElementById('toggleUnderlineButton')?.addEventListener('click', () => editor.chain().focus().toggleUnderline().run());
+            document.getElementById('toggleStrikeButton')?.addEventListener('click', () => editor.chain().focus().toggleStrike().run());
+            document.getElementById('toggleHighlightButton')?.addEventListener('click', () => {
+                const isHighlighted = editor.isActive('highlight');
+                editor.chain().focus().toggleHighlight({ color: isHighlighted ? undefined : '#ffc078' }).run();
+            });
+            document.getElementById('toggleLinkButton')?.addEventListener('click', () => {
+                let url = window.prompt('Enter a URL:', 'https://');
+
+                if (!url) return;
+
+                url = url.trim();
+
+                // Remove duplicate protocols (e.g., "https://https://")
+                url = url.replace(/^(https?:\/\/)+/i, '');
+
+                // Default to https://
+                url = 'https://' + url;
+
+                try {
+                    const parsedUrl = new URL(url);
+
+                    // Allow only http or https protocols
+                    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+                        alert('Only http and https protocols are allowed.');
+                        return;
+                    }
+
+                    // Require a valid domain with at least one dot
+                    if (!parsedUrl.hostname.includes('.')) {
+                        alert('URL must include a valid domain, e.g., example.com.');
+                        return;
+                    }
+
+                    // Disallow any spaces in the URL
+                    if (/\s/.test(parsedUrl.href)) {
+                        alert('URL must not contain spaces.');
+                        return;
+                    }
+
+                    // Optional: remove trailing slash for consistency
+                    url = parsedUrl.href.replace(/\/$/, '');
+
+                    // Set the link in the editor
+                    editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+                } catch (e) {
+                    alert('Invalid URL format.');
+                }
+            });
+            document.getElementById('removeLinkButton')?.addEventListener('click', () => editor.chain().focus().unsetLink().run());
+            document.getElementById('toggleCodeButton')?.addEventListener('click', () => editor.chain().focus().toggleCode().run());
+
+            document.getElementById('toggleLeftAlignButton')?.addEventListener('click', () => editor.chain().focus().setTextAlign('left').run());
+            document.getElementById('toggleCenterAlignButton')?.addEventListener('click', () => editor.chain().focus().setTextAlign('center').run());
+            document.getElementById('toggleRightAlignButton')?.addEventListener('click', () => editor.chain().focus().setTextAlign('right').run());
+            document.getElementById('toggleJustifyAlignButton')?.addEventListener('click', () => editor.chain().focus().setTextAlign('justify').run());
+            document.getElementById('toggleListButton')?.addEventListener('click', () => editor.chain().focus().toggleBulletList().run());
+            document.getElementById('toggleOrderedListButton')?.addEventListener('click', () => editor.chain().focus().toggleOrderedList().run());
+            document.getElementById('toggleBlockquoteButton')?.addEventListener('click', () => editor.chain().focus().toggleBlockquote().run());
+            document.getElementById('toggleHRButton')?.addEventListener('click', () => editor.chain().focus().setHorizontalRule().run());
+
+            /* helper buka File-Manager */
+            function lfm(callback, type = 'image', prefix = '/admin/laravel-filemanager') {
+                const w = 900, h = 600
+                const x = (innerWidth - w) / 2
+                const y = (innerHeight - h) / 2
+                window.open(`${prefix}?type=${type}`, 'FileManager',
+                    `scrollbars=yes,width=${w},height=${h},top=${y},left=${x}`)
+                window.SetUrl = callback
+            }
+
+            /* tombol Open File-Manager */
+            document.getElementById('lfmImageButton')?.addEventListener('click', () => {
+                lfm((items) => {
+                    const { url, width: origW, height: origH } =
+                        Array.isArray(items) ? items[0] : items
+
+                    /* Isi default modal */
+                    const modalEl   = document.getElementById('imgOptionsModal')
+                    modalEl.querySelector('[name="width"]').value  = origW || ''
+                    modalEl.querySelector('[name="height"]').value = origH || ''
+                    modalEl.querySelector('[name="alt"]').value    = ''
+                    modalEl.querySelector('[name="class"]').value  = ''
+                    modalEl.dataset.imgUrl = url                  // simpan URL
+                    document.getElementById('imgOptionsUrl').textContent = url
+
+                    /* Tampilkan modal (Flowbite) */
+                    const modal = FlowbiteInstances.getInstance('Modal', 'imgOptionsModal')
+                        ?? new Modal(modalEl)
+                    modal.show()
                 })
+            })
 
-                document.getElementById('toggleLeftAlignButton').addEventListener('click', () => {
-                    editor.chain().focus().setTextAlign('left').run();
-                });
-                document.getElementById('toggleCenterAlignButton').addEventListener('click', () => {
-                    editor.chain().focus().setTextAlign('center').run();
-                });
-                document.getElementById('toggleRightAlignButton').addEventListener('click', () => {
-                    editor.chain().focus().setTextAlign('right').run();
-                });
-                document.getElementById('toggleListButton').addEventListener('click', () => {
-                    editor.chain().focus().toggleBulletList().run();
-                });
-                document.getElementById('toggleOrderedListButton').addEventListener('click', () => {
-                    editor.chain().focus().toggleOrderedList().run();
-                });
-                document.getElementById('toggleBlockquoteButton').addEventListener('click', () => {
-                    editor.chain().focus().toggleBlockquote().run();
-                });
-                document.getElementById('toggleHRButton').addEventListener('click', () => {
-                    editor.chain().focus().setHorizontalRule().run();
-                });
-                document.getElementById('addImageButton').addEventListener('click', () => {
-                    const url = window.prompt('Enter image URL:', 'https://placehold.co/600x400');
-                    if (url) {
-                        editor.chain().focus().setImage({ src: url }).run();
-                    }
-                });
-                document.getElementById('addVideoButton').addEventListener('click', () => {
-                    const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
-                    if (url) {
-                        editor.commands.setYoutubeVideo({
-                            src: url,
-                            width: 640,
-                            height: 480,
-                        })
-                    }
-                });
+            /* submit modal → insert image */
+            document.getElementById('imgOptionsForm')?.addEventListener('submit', (e) => {
+                e.preventDefault()
+                const modalEl = document.getElementById('imgOptionsModal')
+                const url   = modalEl.dataset.imgUrl
+                const data  = Object.fromEntries(new FormData(e.target).entries())
 
-                // typography dropdown
-                const typographyDropdown = FlowbiteInstances.getInstance('Dropdown', 'typographyDropdown');
+                const attrs = { src: url }
+                if (data.alt)   attrs.alt   = data.alt
+                if (data.class) attrs.class = data.class
 
-                document.getElementById('toggleParagraphButton').addEventListener('click', () => {
-                    editor.chain().focus().setParagraph().run();
+                const styleParts = []
+                if (data.width)  styleParts.push(`width:${data.width}`)
+                if (data.height) styleParts.push(`height:${data.height}`)
+                if (styleParts.length) attrs.style = styleParts.join(';') + ';'
+
+                editor.chain().focus().setImage(attrs).run()
+
+                /* tutup modal */
+                const modal = FlowbiteInstances.getInstance('Modal', 'imgOptionsModal')
+                modal?.hide()
+            })
+
+            /** Tutup Modal **/
+            document.getElementById('closeImgOptionsBtn')?.addEventListener('click', () => {
+                const modal = FlowbiteInstances.getInstance('Modal', 'imgOptionsModal')
+                modal?.hide()
+            })
+
+            document.getElementById('cancelImgOptionsBtn')?.addEventListener('click', () => {
+                const modal = FlowbiteInstances.getInstance('Modal', 'imgOptionsModal')
+                modal?.hide()
+            })
+
+            document.getElementById('addImageButton')?.addEventListener('click', () => {
+                const url = window.prompt('Enter image URL:', 'https://placehold.co/600x400');
+                if (url) editor.chain().focus().setImage({ src: url }).run();
+            });
+
+            document.getElementById('addVideoButton')?.addEventListener('click', () => {
+                const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
+                if (url) {
+                    editor.commands.setYoutubeVideo({ src: url, width: 640, height: 480 });
+                }
+            });
+
+            const typographyDropdown = FlowbiteInstances.getInstance('Dropdown', 'typographyDropdown');
+            document.getElementById('toggleParagraphButton')?.addEventListener('click', () => {
+                editor.chain().focus().setParagraph().run();
+                typographyDropdown.hide();
+            });
+
+            document.querySelectorAll('[data-heading-level]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const level = button.getAttribute('data-heading-level');
+                    editor.chain().focus().toggleHeading({ level: parseInt(level) }).run();
                     typographyDropdown.hide();
                 });
+            });
 
-                document.querySelectorAll('[data-heading-level]').forEach((button) => {
-                    button.addEventListener('click', () => {
-                        const level = button.getAttribute('data-heading-level');
-                        editor.chain().focus().toggleHeading({ level: parseInt(level) }).run()
-                        typographyDropdown.hide();
-                    });
+            const textSizeDropdown = FlowbiteInstances.getInstance('Dropdown', 'textSizeDropdown');
+            document.querySelectorAll('[data-text-size]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const fontSize = button.getAttribute('data-text-size');
+                    editor.chain().focus().setMark('textStyle', { fontSize }).run();
+                    textSizeDropdown.hide();
                 });
+            });
 
-                const textSizeDropdown = FlowbiteInstances.getInstance('Dropdown', 'textSizeDropdown');
+            const colorPicker = document.getElementById('color');
+            colorPicker?.addEventListener('input', (e) => {
+                editor.chain().focus().setColor(e.target.value).run();
+            });
 
-                // Loop through all elements with the data-text-size attribute
-                document.querySelectorAll('[data-text-size]').forEach((button) => {
-                    button.addEventListener('click', () => {
-                        const fontSize = button.getAttribute('data-text-size');
-
-                        // Apply the selected font size via pixels using the TipTap editor chain
-                        editor.chain().focus().setMark('textStyle', { fontSize }).run();
-
-                        // Hide the dropdown after selection
-                        textSizeDropdown.hide();
-                    });
-                });
-
-                // Listen for color picker changes
-                const colorPicker = document.getElementById('color');
-                colorPicker.addEventListener('input', (event) => {
-                    const selectedColor = event.target.value;
-
-                    // Apply the selected color to the selected text
+            document.querySelectorAll('[data-hex-color]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const selectedColor = button.getAttribute('data-hex-color');
                     editor.chain().focus().setColor(selectedColor).run();
-                })
-
-                document.querySelectorAll('[data-hex-color]').forEach((button) => {
-                    button.addEventListener('click', () => {
-                        const selectedColor = button.getAttribute('data-hex-color');
-
-                        // Apply the selected color to the selected text
-                        editor.chain().focus().setColor(selectedColor).run();
-                    });
                 });
+            });
 
-                document.getElementById('reset-color').addEventListener('click', () => {
-                    editor.commands.unsetColor();
-                })
+            document.getElementById('reset-color')?.addEventListener('click', () => editor.commands.unsetColor());
 
-                const fontFamilyDropdown = FlowbiteInstances.getInstance('Dropdown', 'fontFamilyDropdown');
-
-                // Loop through all elements with the data-font-family attribute
-                document.querySelectorAll('[data-font-family]').forEach((button) => {
-                    button.addEventListener('click', () => {
-                        const fontFamily = button.getAttribute('data-font-family');
-
-                        // Apply the selected font size via pixels using the TipTap editor chain
-                        editor.chain().focus().setFontFamily(fontFamily).run();
-
-                        // Hide the dropdown after selection
-                        fontFamilyDropdown.hide();
-                    });
+            const fontFamilyDropdown = FlowbiteInstances.getInstance('Dropdown', 'fontFamilyDropdown');
+            document.querySelectorAll('[data-font-family]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const fontFamily = button.getAttribute('data-font-family');
+                    editor.chain().focus().setFontFamily(fontFamily).run();
+                    fontFamilyDropdown.hide();
                 });
-            }
+            });
         });
     </script>
-
 @endsection
