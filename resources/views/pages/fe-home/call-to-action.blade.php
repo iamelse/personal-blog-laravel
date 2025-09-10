@@ -7,17 +7,17 @@
 @section('content')
 <!-- ===== Main Content Start ===== -->
 <main>
-    <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+    <div class="py-4 mx-auto w-full md:py-4">
         <!-- Header Section -->
         <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
                     About Section
-                </h1>                
+                </h1>
                 <p class="text-gray-600 dark:text-gray-400">
                     Customize your About Section to share your story, vision, and values in a compelling way.
                 </p>
-            </div>            
+            </div>
         </div>
 
         <!-- Hero Section Form -->
@@ -30,21 +30,21 @@
                     @php
                         $content = json_decode($callToAction->content ?? '{}', true);
                     @endphp
-    
+
                     <!-- Hero Title -->
                     <div class="mb-4">
                         <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             Title <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: @json(session('errors') && session('errors')->has('content.title')) }">
-                            <input 
-                                type="text" 
-                                id="title" 
+                            <input
+                                type="text"
+                                id="title"
                                 name="content[title]"
                                 placeholder="Enter title"
                                 value="{{ old('content.title', $content['title'] ?? '') }}"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border rounded-lg placeholder:text-gray-400 dark:placeholder:text-white/30"
                             >
@@ -53,32 +53,32 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Hero Description -->
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                            Description <span class="text-error-500">*</span> 
+                            Description <span class="text-error-500">*</span>
                         </label>
-                        <div x-data="{ 
+                        <div x-data="{
                                 hasError: @json(session('errors') && session('errors')->has('content.description')),
-                                resize() { 
+                                resize() {
                                     $refs.textarea.style.height = 'auto';
                                     $refs.textarea.style.height = $refs.textarea.scrollHeight + 'px';
                                 }
-                            }" 
+                            }"
                             x-init="resize()"
                         >
-                            <textarea 
-                                id="description" 
-                                name="content[description]" 
+                            <textarea
+                                id="description"
+                                name="content[description]"
                                 x-ref="textarea"
                                 @input="resize()"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="mt-1 block w-full rounded-lg overflow-hidden resize-none"
                             >{{ old('content.description', $content['description'] ?? '') }}</textarea>
-                            
+
                             <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
                                 @error('content.description') * {{ $message }} @enderror
                             </span>

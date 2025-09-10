@@ -3,7 +3,7 @@
 @section('content')
 <!-- ===== Main Content Start ===== -->
 <main>
-    <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+    <div class="py-4 mx-auto w-full md:py-4">
 
         <!-- Header Section -->
         <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -18,22 +18,22 @@
             <div class="rounded-2xl px-6 pb-8 pt-4 border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
                 <form action="{{ route('be.role.and.permission.store') }}" method="POST" x-data="{ name: '', slug: '' }">
                     @csrf
-                    
+
                     <!-- Role Name -->
                     <div class="mt-4">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Role Name <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('name') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
-                                x-model="name" 
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                x-model="name"
                                 @input="slug = name.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')"
                                 placeholder="Enter role name"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -42,21 +42,21 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Slug (Read-only) -->
                     <div class="mt-4">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Slug <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('slug') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="slug" 
-                                name="slug" 
+                            <input
+                                type="text"
+                                id="slug"
+                                name="slug"
                                 x-model="slug"
                                 placeholder="Slug is auto generated"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 readonly>
@@ -65,10 +65,10 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
                             Create Role
                         </button>

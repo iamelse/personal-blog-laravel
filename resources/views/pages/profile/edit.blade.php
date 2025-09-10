@@ -3,7 +3,7 @@
 @section('content')
 <!-- ===== Main Content Start ===== -->
 <main>
-    <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+    <div class="py-4 mx-auto w-full md:py-4">
         <!-- Header Section -->
         <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -18,11 +18,11 @@
                 <form action="{{ route('be.user.profile.update', $user->username) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    
+
                     <!-- Image Profile -->
-                    <div class="mt-4 flex flex-col items-center" 
-                        x-data="{ 
-                            imagePreview: '{{ getUserImageProfilePath(Auth::user()) }}', 
+                    <div class="mt-4 flex flex-col items-center"
+                        x-data="{
+                            imagePreview: '{{ getUserImageProfilePath(Auth::user()) }}',
                             defaultImage: '{{ Avatar::create(Auth::user()->name)->toBase64() }}',
                             removeImage: false
                         }">
@@ -34,11 +34,11 @@
                                 @click="$refs.imageInput.click()"
                                 alt="Profile Image"
                                 class="w-32 h-32 rounded-full object-cover cursor-pointer transition duration-300 hover:opacity-80">
-                            
+
                             @if ($user->image)
                                 <!-- Hidden input to track image removal -->
                                 <input type="hidden" name="remove_image" :value="removeImage ? 1 : 0">
-                                
+
                                 <!-- Remove Button -->
                                 <template x-if="imagePreview !== defaultImage">
                                     <button type="button"
@@ -61,21 +61,21 @@
                                         }">
                         </div>
                     </div>
-                    
+
                     <!-- Name -->
                     <div class="mt-4">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Name <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('name') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
                                 placeholder="Enter your name"
                                 value="{{ old('name', $user->name) }}"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -91,14 +91,14 @@
                             Username <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('username') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="username" 
-                                name="username" 
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
                                 placeholder="Enter your username"
                                 value="{{ old('username', $user->username) }}"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -114,14 +114,14 @@
                             Email <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('email') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="email" 
+                            <input
+                                type="text"
+                                id="email"
                                 name="email"
                                 placeholder="Enter your email"
                                 value="{{ old('email', $user->email) }}"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -130,10 +130,10 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
                             Save
                         </button>
@@ -156,20 +156,20 @@
                 <form action="{{ route('be.user.profile.update.password', $user->username) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    
+
                     <!-- Old Password -->
                     <div class="mt-4">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Current Password <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('current_password') ? 'true' : 'false' }} }">
-                            <input 
-                                type="password" 
-                                id="current_password" 
-                                name="current_password" 
+                            <input
+                                type="password"
+                                id="current_password"
+                                name="current_password"
                                 placeholder="Enter your current password"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -185,13 +185,13 @@
                             New Password <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('new_password') ? 'true' : 'false' }} }">
-                            <input 
-                                type="password" 
-                                id="new_password" 
-                                name="new_password" 
+                            <input
+                                type="password"
+                                id="new_password"
+                                name="new_password"
                                 placeholder="Enter your new password"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -207,13 +207,13 @@
                             New Password Confirmation <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('new_password_confirmation') ? 'true' : 'false' }} }">
-                            <input 
-                                type="password" 
-                                id="new_password_confirmation" 
+                            <input
+                                type="password"
+                                id="new_password_confirmation"
                                 name="new_password_confirmation"
                                 placeholder="Re-enter your new password"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 >
@@ -222,10 +222,10 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
                             Change Password
                         </button>

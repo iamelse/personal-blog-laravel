@@ -3,7 +3,7 @@
 @section('content')
 <!-- ===== Main Content Start ===== -->
 <main>
-    <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+    <div class="py-4 mx-auto w-full md:py-4">
         <!-- Header Section -->
         <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -17,21 +17,21 @@
             <div class="rounded-2xl px-6 pb-8 pt-4 border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
                 <form action="{{ route('be.user.store') }}" method="POST">
                     @csrf
-                    
+
                     <!-- Name -->
                     <div class="mt-4">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Name <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('name') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
                                 value="{{ old('name') }}"
                                 placeholder="Enter full name"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -47,14 +47,14 @@
                             Username <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('username') ? 'true' : 'false' }} }">
-                            <input 
-                                type="text" 
-                                id="username" 
-                                name="username" 
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
                                 value="{{ old('username') }}"
                                 placeholder="Enter username"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -70,14 +70,14 @@
                             Email <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('email') ? 'true' : 'false' }} }">
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
                                 value="{{ old('email') }}"
                                 placeholder="Enter email address"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -93,13 +93,13 @@
                             Password <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session('errors') && session('errors')->has('password') ? 'true' : 'false' }} }">
-                            <input 
-                                type="password" 
-                                id="password" 
+                            <input
+                                type="password"
+                                id="password"
                                 name="password"
                                 placeholder="Enter password"
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -115,11 +115,11 @@
                             Role <span class="text-error-500">*</span>
                         </label>
                         <div x-data="{ hasError: {{ session()->has('errors') && session('errors')->has('role') ? 'true' : 'false' }} }">
-                            <select 
-                                id="role" 
-                                name="role" 
-                                :class="hasError 
-                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500' 
+                            <select
+                                id="role"
+                                name="role"
+                                :class="hasError
+                                    ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                     : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
                                 required>
@@ -135,10 +135,10 @@
                             </span>
                         </div>
                     </div>
-    
+
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
                             Create User
                         </button>

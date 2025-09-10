@@ -3,7 +3,7 @@
 @section('content')
 <!-- ===== Main Content Start ===== -->
 <main>
-    <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+    <div class="py-4 mx-auto w-full md:py-4">
         <!-- Header Section -->
         <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -18,21 +18,21 @@
                 <form action="{{ route('be.skill.update', $skill->slug) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    
+
                     <!-- Name -->
                     <div class="mt-4" x-data="{ hasError: {{ session('errors') && session('errors')->has('name') ? 'true' : 'false' }} }">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Name <span class="text-error-500">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
                             x-model="name"
                             placeholder="e.g., JavaScript, Python, PHP"
                             @input.debounce.300ms="updateSlug"
-                            :class="hasError 
-                                ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' 
+                            :class="hasError
+                                ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500'
                                 : 'border-gray-300 dark:border-gray-700 focus:ring-blue-500 focus:border-blue-500'"
                             class="h-11 w-full text-sm mt-1 px-4 py-2.5 border rounded-lg bg-white border-gray-300 dark:border-gray-700 dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30 focus:ring-2"
                             required>
@@ -46,14 +46,14 @@
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Slug <span class="text-error-500">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            id="slug" 
-                            name="slug" 
+                        <input
+                            type="text"
+                            id="slug"
+                            name="slug"
                             x-model="slug"
                             placeholder="Slug will be generated automatically from the name you provided."
-                            :class="hasError 
-                                ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500' 
+                            :class="hasError
+                                ? 'border-red-500 dark:border-red-500 focus:ring-red-500 focus:border-red-500'
                                 : 'border-gray-300 dark:border-gray-700 focus:ring-blue-500 focus:border-blue-500'"
                             class="h-11 w-full text-sm mt-1 px-4 py-2.5 border rounded-lg bg-white border-gray-300 dark:border-gray-700 dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30 focus:ring-2"
                             readonly
@@ -68,10 +68,10 @@
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Icon Class <span class="text-error-500">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            id="icon_class" 
-                            name="icon_class" 
+                        <input
+                            type="text"
+                            id="icon_class"
+                            name="icon_class"
                             value="{{ old('icon_class', $skill->icon_class) }}"
                             placeholder="e.g., devicon-javascript-plain, devicon-php-plain"
                             class="h-11 w-full text-sm mt-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 placeholder:text-gray-400 dark:placeholder:text-white/30"
@@ -83,7 +83,7 @@
 
                     <!-- Submit Button -->
                     <div class="flex justify-end mt-6">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex items-center gap-2 h-[42px] px-4 py-2.5 rounded-lg border border-blue-500 bg-blue-600 text-white font-medium transition-all hover:bg-blue-700 hover:border-blue-600 focus:ring focus:ring-blue-300 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-800">
                             Update Skill
                         </button>

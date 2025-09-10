@@ -7,7 +7,7 @@
 @section('content')
     <!-- ===== Main Content Start ===== -->
     <main>
-        <div class="p-4 mx-auto max-w-screen-2xl md:p-6">
+        <div class="py-4 mx-auto w-full md:py-4">
 
             <!-- Header Section -->
             <div class="flex px-6 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
