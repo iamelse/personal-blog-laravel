@@ -1,82 +1,89 @@
 <?php
 
 use App\Enums\FileSystemDiskEnum;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Laravolt\Avatar\Avatar;
 
-if (!function_exists('getUserImageProfilePath')) {
-    function getUserImageProfilePath($user)
+/**
+ * Helper dasar: cek file di storage/public_html, return URL kalau ada.
+ * Jika file tidak ada -> return null.
+ */
+if (!function_exists('getFileUrl')) {
+    function getFileUrl(?string $path): ?string
     {
+        if (!$path) {
+            return null;
+        }
+
         $disk = env('FILESYSTEM_DISK');
-        $placeholderUrl = 'https://dummyimage.com/300';
-        $avatar = Avatar::create(Auth::user()->name);
         $appUrl = rtrim(env('APP_URL'), '/');
         $publicHtmlPath = base_path('../public_html');
 
-        if ($disk === FileSystemDiskEnum::PUBLIC->value) {
-            if ($user->image && Storage::disk('public')->exists($user->image)) {
-                return asset('storage/' . $user->image);
-            }
+        if ($disk === FileSystemDiskEnum::PUBLIC->value && Storage::disk('public')->exists($path)) {
+            return asset('storage/' . $path);
         }
-        elseif ($disk === FileSystemDiskEnum::PUBLIC_UPLOADS->value) {
-            $filePath = $user->image;
-            $fullPath = $publicHtmlPath . '/' . $filePath;
-            if ($user->image && file_exists($fullPath)) {
-                return $appUrl . '/' . $filePath;
+
+        if ($disk === FileSystemDiskEnum::PUBLIC_UPLOADS->value) {
+            $fullPath = $publicHtmlPath . '/' . $path;
+            if (file_exists($fullPath)) {
+                return $appUrl . '/' . $path;
             }
         }
 
-        return $avatar->toBase64();
+        return null;
+    }
+}
+
+/**
+ * Image helper: return URL file atau placeholder jika tidak ada.
+ */
+if (!function_exists('getImageUrl')) {
+    function getImageUrl(?string $path, string $placeholderUrl): string
+    {
+        return getFileUrl($path) ?? $placeholderUrl;
+    }
+}
+
+/**
+ * Avatar helper: return URL file atau generate avatar (base64).
+ */
+if (!function_exists('getAvatarUrl')) {
+    function getAvatarUrl(?string $path, string $name): string
+    {
+        $avatar = new Avatar();
+        $avatar = $avatar->create($name);
+        return getFileUrl($path) ?? $avatar->toBase64();
+    }
+}
+
+/**
+ * IMPLEMENTASI UNTUK KASUS SEKARANG
+ */
+
+if (!function_exists('getUserImageProfilePath')) {
+    function getUserImageProfilePath($user): string
+    {
+        return getAvatarUrl($user->image ?? null, $user->name ?? 'User');
     }
 }
 
 if (!function_exists('getAuthorPostImagePath')) {
-    function getAuthorPostImagePath($user)
+    function getAuthorPostImagePath($user): string
     {
-        $disk = env('FILESYSTEM_DISK');
-        $placeholderUrl = 'https://dummyimage.com/300';
-        $avatar = Avatar::create($user->name ?? $user->full_name ?? 'User');
-        $appUrl = rtrim(env('APP_URL'), '/');
-        $publicHtmlPath = base_path('../public_html');
-
-        if ($disk === FileSystemDiskEnum::PUBLIC->value) {
-            if ($user->image && Storage::disk('public')->exists($user->image)) {
-                return asset('storage/' . $user->image);
-            }
-        }
-        elseif ($disk === FileSystemDiskEnum::PUBLIC_UPLOADS->value) {
-            $filePath = $user->image;
-            $fullPath = $publicHtmlPath . '/' . $filePath;
-            if ($user->image && file_exists($fullPath)) {
-                return $appUrl . '/' . $filePath;
-            }
-        }
-
-        return $avatar->toBase64();
+        return getAvatarUrl($user->image ?? null, $user->name ?? $user->full_name ?? 'User');
     }
 }
 
 if (!function_exists('getAboutMeImageSection')) {
-    function getAboutMeImageSection($content)
+    function getAboutMeImageSection(array $content): string
     {
-        $disk = env('FILESYSTEM_DISK');
-        $placeholderUrl = 'https://dummyimage.com/300';
-        $appUrl = rtrim(env('APP_URL'), '/');
-        $publicHtmlPath = base_path('../public_html');
+        return getImageUrl($content['image'] ?? null, 'https://dummyimage.com/300');
+    }
+}
 
-        if ($disk === FileSystemDiskEnum::PUBLIC->value) {
-            if ($content['image'] && Storage::disk('public')->exists($content['image'])) {
-                return asset('storage/' . $content['image']);
-            }
-        }
-        elseif ($disk === FileSystemDiskEnum::PUBLIC_UPLOADS->value) {
-            $filePath = $content['image'];
-            $fullPath = $publicHtmlPath . '/' . $filePath;
-            if ($content['image'] && file_exists($fullPath)) {
-                return $appUrl . '/' . $filePath;
-            }
-        }
-
-        return $placeholderUrl;
+if (!function_exists('getPostCover')) {
+    function getPostCover($post): string
+    {
+        return getImageUrl($post->cover ?? null, 'https://dummyimage.com/600x400/cccccc/000000&text=No+Cover');
     }
 }

@@ -60,7 +60,7 @@
                     decoding="async"
                     class="my-10 w-full overflow-hidden rounded-[20px]"
                     style="color: transparent;"
-                    src="{{ $post->cover }}"
+                    src="{{ getPostCover($post) }}"
                 />
             </div>
 

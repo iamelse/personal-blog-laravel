@@ -22,7 +22,7 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cover'             => 'nullable|string|image|mimes:jpg,jpeg,png|max:2048',
+            'cover'             => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'title'             => 'required|string|max:255',
             'slug'              => 'required|string|max:255|alpha_dash|unique:posts,slug,' . $this->route('post')->id,
             'excerpt'           => 'nullable|string',

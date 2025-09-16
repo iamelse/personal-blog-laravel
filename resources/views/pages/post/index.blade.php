@@ -218,6 +218,7 @@
                                         [...document.querySelectorAll('.quick-link-checkbox')].map(cb => cb.value) : []">
                                 </th>
                                 <th class="w-20 px-4 py-3 font-medium">No.</th>
+                                <th class="px-4 py-3 font-medium">Image</th>
                                 <th class="px-4 py-3 font-medium">Title</th>
                                 <th class="px-4 py-3 font-medium">Category</th>
                                 <th class="px-4 py-3 font-medium">Status</th>
@@ -236,6 +237,11 @@
                                             x-model="selected">
                                     </td>
                                     <td class="w-20 px-4 py-3">{{ $loop->iteration }}</td>
+                                    <td class="p-2">
+                                        <img src="{{ getPostCover($post) }}"
+                                             alt="Post Cover"
+                                             class="h-20 w-auto object-cover rounded" />
+                                    </td>
                                     <td class="px-4 py-3">{{ $post->title }}</td>
                                     <td class="px-4 py-3">{{ $post->category->name }}</td>
                                     <td class="px-4 py-3">

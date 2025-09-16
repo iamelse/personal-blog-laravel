@@ -15,9 +15,87 @@
             <!-- Form Section -->
             <div class="border-gray-100 p-5 dark:border-gray-800 sm:p-6">
                 <div class="rounded-2xl px-6 pb-8 pt-4 border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-                    <form id="edit-post-form" action="{{ route('be.post.update', $post->slug) }}" method="POST" x-data="{ title: '{{ $post->title }}', slug: '{{ $post->slug }}' }">
+                    <form id="edit-post-form" action="{{ route('be.post.update', $post->slug) }}" method="POST" x-data="{ title: '{{ $post->title }}', slug: '{{ $post->slug }}' }" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+
+                        <!-- Cover Image Upload -->
+                        <div class="mt-4">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Cover <span class="text-error-500">*</span>
+                            </label>
+
+                            <div
+                                x-data="imageUploader('{{ getPostCover($post) }}')"
+                                x-init="hasError = {{ session('errors') && session('errors')->has('cover') ? 'true' : 'false' }}"
+                            >
+                                <label
+                                    for="uploadFile1"
+                                    class="relative bg-white text-slate-500 font-semibold text-base rounded aspect-[21/9] flex flex-col items-center justify-center cursor-pointer border-2 border-dashed overflow-hidden"
+                                    :class="hasError
+                                    ? 'border-red-500 dark:border-red-500'
+                                    : 'border-gray-300 dark:border-gray-700'"
+                                >
+                                    <!-- Preview -->
+                                    <template x-if="preview">
+                                        <div class="absolute inset-0">
+                                            <img :src="preview" alt="preview" class="w-full h-full object-cover" draggable="false" />
+                                            <!-- Tombol hapus -->
+                                            <button
+                                                type="button"
+                                                @click.prevent="remove()"
+                                                class="absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center bg-white/90 hover:bg-red-100 border border-gray-300 hover:border-red-300 shadow transition-colors"
+                                                title="Hapus"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-700 hover:text-red-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </template>
+
+                                    <!-- Default UI -->
+                                    <template x-if="!preview">
+                                        <div class="flex flex-col items-center z-10">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-3 fill-gray-500" viewBox="0 0 32 32">
+                                                <path
+                                                    d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z" />
+                                                <path
+                                                    d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z" />
+                                            </svg>
+                                            <div>Upload file</div>
+                                        </div>
+                                    </template>
+
+                                    <input
+                                        x-ref="input"
+                                        @change="fileChosen"
+                                        type="file"
+                                        id="uploadFile1"
+                                        name="cover"
+                                        accept="image/*"
+                                        class="hidden"
+                                    />
+
+                                    <!-- Info filename -->
+                                    <div class="absolute bottom-3 text-center w-full z-10">
+                                        <p class="text-xs font-medium text-slate-400">
+                                            PNG, JPG, WEBP, SVG, GIF — Max: 5 MB
+                                        </p>
+                                        <template x-if="fileName">
+                                            <p class="text-xs text-slate-600 mt-1">
+                                                <span x-text="fileName"></span> — <span x-text="prettySize"></span>
+                                            </p>
+                                        </template>
+                                    </div>
+                                </label>
+
+                                <!-- Error Message -->
+                                <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500 block" x-show="hasError">
+                                    @error('cover') * {{ $message }} @enderror
+                                </span>
+                            </div>
+                        </div>
 
                         <!-- Post Title -->
                         <div class="mt-4">
@@ -83,9 +161,7 @@
                                 ? 'border-red-500 dark:border-red-500 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-500'
                                 : 'border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500'"
                                 class="w-full text-sm mt-1 px-4 py-2.5 resize-none"
-                                required>
-                                    {{ old('excerpt') ?? $post->excerpt }}
-                                </textarea>
+                                required>{{ old('excerpt') ?? $post->excerpt }}</textarea>
                                 <span class="text-xs mt-1 font-medium text-red-500 dark:text-red-500" x-show="hasError">
                                     @error('excerpt') * {{ $message }} @enderror
                                 </span>
@@ -1222,5 +1298,58 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        function imageUploader(existingImage = null) {
+            return {
+                preview: existingImage || null,
+                fileName: '',
+                fileSize: 0,
+                hasError: false,
+                maxSize: 5 * 1024 * 1024, // 5MB
+                get prettySize() {
+                    if (!this.fileSize) return '';
+                    const kb = this.fileSize / 1024;
+                    return kb > 1024 ? (kb / 1024).toFixed(2) + ' MB' : Math.round(kb) + ' KB';
+                },
+                fileChosen(event) {
+                    const input = event.target;
+                    const f = input.files && input.files[0];
+                    if (!f) return;
+
+                    if (!f.type.startsWith('image/')) {
+                        alert('File harus berupa gambar.');
+                        input.value = '';
+                        this.hasError = true;
+                        return;
+                    }
+
+                    if (f.size > this.maxSize) {
+                        alert('Maksimum ukuran file 5 MB');
+                        input.value = '';
+                        this.hasError = true;
+                        return;
+                    }
+
+                    this.fileName = f.name;
+                    this.fileSize = f.size;
+                    this.hasError = false;
+
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.preview = e.target.result;
+                    };
+                    reader.readAsDataURL(f);
+                },
+                remove() {
+                    this.preview = null;
+                    this.fileName = '';
+                    this.fileSize = 0;
+                    this.hasError = false;
+                    this.$refs.input.value = '';
+                }
+            };
+        }
     </script>
 @endsection

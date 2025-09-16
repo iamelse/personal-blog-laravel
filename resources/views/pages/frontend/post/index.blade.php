@@ -90,7 +90,7 @@
                     <!-- Post Card -->
                     <div class="border border-gray-200 dark:border-gray-700 rounded-3xl p-2.5 bg-white dark:bg-gray-700 flex flex-col"
                          data-aos="zoom-in" data-aos-delay="{{ 200 + ($loop->index * 150) }}">
-                    <img src="{{ $post->cover }}" alt="{{ $post->cover }}"
+                    <img src="{{ getPostCover($post) }}" alt="{{ $post->cover }}"
                              class="w-full rounded-2xl aspect-[16/9] object-cover">
                         <div class="flex flex-col flex-grow p-3">
                             <h3 class="text-2xl py-2 font-semibold">

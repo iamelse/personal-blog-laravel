@@ -8,6 +8,7 @@ use App\Http\Requests\Web\Post\StorePostRequest;
 use App\Http\Requests\Web\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Services\ImageManagementService;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,6 +19,10 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    public function __construct(
+        protected ImageManagementService $imageManagementService
+    ) {}
+
     protected array $allowedFilterFields = ['title', 'slug', 'body'];
 
     private function _getFilteredPosts(Request $request)
@@ -32,10 +37,10 @@ class PostController extends Controller
                 sort_order: $request->sort_order ?? 'DESC'
             )
             ->when($request->category, fn($query, $category) =>
-            $query->whereHas('category', fn($q) => $q->where('slug', $category))
+                $query->whereHas('category', fn($q) => $q->where('slug', $category))
             )
             ->when($request->status, fn($query, $status) =>
-            $query->where('status', $status)
+                $query->where('status', $status)
             )
             ->paginate($request->query('limit') ?? 10);
     }
@@ -77,7 +82,13 @@ class PostController extends Controller
         Gate::authorize(PermissionEnum::CREATE_POST->value);
 
         try {
+            $imagePath = $this->_handleImageUpload($request, null);
+
             $validatedData = $request->validated();
+
+            if ($imagePath) {
+                $validatedData['cover'] = $imagePath;
+            }
 
             $validatedData['user_id'] = auth()->id();
 
@@ -117,6 +128,12 @@ class PostController extends Controller
         try {
             $validatedData = $request->validated();
 
+            $imagePath = $this->_handleImageUpload($request, $post);
+
+            if ($imagePath) {
+                $validatedData['cover'] = $imagePath;
+            }
+
             $post->update($validatedData);
 
             return redirect()->route('be.post.edit', $post->slug)
@@ -139,6 +156,7 @@ class PostController extends Controller
 
         try {
             $post->delete();
+            $this->imageManagementService->destroyImage($post->cover);
 
             return redirect()
                 ->route('be.post.index')
@@ -181,6 +199,28 @@ class PostController extends Controller
                 ->route('be.post.index')
                 ->with('error', 'An error occurred while deleting the posts.');
         }
+    }
+
+    private function _handleImageUpload($request, $post): ?string
+    {
+        $imagePath = null;
+
+        if ($request->hasFile('cover')) {
+            $image = $request->file('cover');
+
+            $currentImagePath = $post?->cover;
+            $postTitle = $post?->title ?? $request->title;
+
+            $imagePath = $this->imageManagementService->uploadImage($image, [
+                'currentImagePath' => $currentImagePath,
+                'disk' => env('FILESYSTEM_DISK'),
+                'folder' => 'uploads/posts',
+                'postTitle' => $postTitle,
+                'resize' => ['width' => 960]
+            ]);
+        }
+
+        return $imagePath;
     }
 
     public function generateSlug(Request $request)
