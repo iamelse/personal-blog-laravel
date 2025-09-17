@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\FrontEnd\ContactController;
 use App\Http\Controllers\Web\FrontEnd\ResumeController;
 use App\Http\Controllers\Web\FrontEnd\AboutController;
 use App\Http\Controllers\Web\FrontEnd\HomeController;
@@ -12,3 +13,5 @@ Route::get('/resume', [ResumeController::class, 'index'])->name('fe.resume.index
 
 Route::get('/post', [PostController::class, 'index'])->name('fe.post.index');
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('fe.post.show');
+
+Route::post('/contact/send-message', [ContactController::class, 'store'])->middleware('throttle:5,1')->name('fe.contact.store');

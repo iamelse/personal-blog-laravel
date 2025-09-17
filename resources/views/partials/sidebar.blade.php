@@ -196,6 +196,18 @@
                             'label' => 'Quick Link',
                             'permission' => PermissionEnum::READ_QUICK_LINK
                         ],
+                        [
+                            'order' => 4,
+                            'active' => [
+                                'be.contact.index',
+                                'be.contact.show'
+                            ],
+                            'exact' => true,
+                            'route' => 'be.contact.index',
+                            'icon' => 'bx bx-book-content',
+                            'label' => 'Contact',
+                            'permission' => PermissionEnum::READ_CONTACT
+                        ],
                     ]
                 ],
                 [

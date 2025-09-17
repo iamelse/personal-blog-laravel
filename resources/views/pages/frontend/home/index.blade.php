@@ -17,6 +17,9 @@
         });
       });
     </script>
+
+    <!-- reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   @endpush
 
   @php
@@ -303,56 +306,105 @@
 
   <!-- Contact Section -->
   <section id="contact" class="min-h-screen py-16 lg:py-32 bg-white dark:bg-gray-900 transition-colors">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
-          data-aos="fade-up">
-        Get in Touch
-      </h2>
+      <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-center text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white"
+              data-aos="fade-up">
+              Get in Touch
+          </h2>
 
-      <p class="mt-4 text-center text-lg text-gray-600 dark:text-gray-400"
-        data-aos="fade-up" data-aos-delay="200">
-        Feel free to reach out for collaborations or just a friendly chat.
-      </p>
+          <p class="mt-4 text-center text-lg text-gray-600 dark:text-gray-400"
+             data-aos="fade-up" data-aos-delay="200">
+              Feel free to reach out for collaborations or just a friendly chat.
+          </p>
 
-      <div class="mt-10 gap-10">
-        <!-- Contact Form -->
-        <div class="p-6 rounded-3xl max-w-3xl mx-auto" data-aos="zoom-in">
-          <form action="#" method="POST" class="space-y-6">
-            <div class="relative" data-aos="fade-right">
-              <input type="text" id="name" name="name" required
-                    class="peer w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
-              <label for="name"
-                    class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600 dark:peer-focus:text-blue-400">
-                Your Name
-              </label>
-            </div>
+          <div class="mt-10 gap-10">
+              <!-- Contact Form -->
+              <div class="p-6 rounded-3xl max-w-3xl mx-auto" data-aos="zoom-in">
 
-            <div class="relative" data-aos="fade-left" data-aos-delay="100">
-              <input type="email" id="email" name="email" required
-                    class="peer w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
-              <label for="email"
-                    class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600 dark:peer-focus:text-blue-400">
-                Your Email
-              </label>
-            </div>
+                  <!-- Success Message -->
+                  @if(session('success'))
+                      <div class="mb-6 p-4 bg-green-100 text-green-700 border border-green-300 rounded">
+                          {{ session('success') }}
+                      </div>
+                  @endif
 
-            <div class="relative" data-aos="fade-right" data-aos-delay="200">
-              <textarea id="message" name="message" rows="4" required
-                        class="peer w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"></textarea>
-              <label for="message"
-                    class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600 dark:peer-focus:text-blue-400">
-                Your Message
-              </label>
-            </div>
+                  @if ($errors->has('throttle'))
+                      <div class="p-4 mb-4 text-red-700 bg-red-100 rounded" role="alert">
+                          {{ $errors->first('throttle') }}
+                      </div>
+                  @endif
 
-            <button type="submit"
-                    class="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-200"
-                    data-aos="zoom-in" data-aos-delay="300">
-              Send Message
-            </button>
-          </form>
-        </div>
+                  @if ($errors->has('general'))
+                      <div class="p-4 mb-4 text-red-700 bg-red-100 rounded" role="alert">
+                          {{ $errors->first('general') }}
+                      </div>
+                  @endif
+
+                  <form action="{{ route('fe.contact.store') }}" method="POST" class="space-y-6">
+                      @csrf
+
+                      <!-- Name -->
+                      <div class="space-y-2" data-aos="fade-right">
+                          <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                              Your Name <span class="text-red-500">*</span>
+                          </label>
+                          <input type="text" id="name" name="name" value="{{ old('name') }}" required
+                                 placeholder="Enter your full name"
+                                 class="w-full px-4 py-3 bg-white dark:bg-gray-700 border rounded-lg transition-colors
+                               focus:outline-none focus:ring-0 focus:border-gray-400
+                               @error('name') border-red-500 @else border-gray-300 dark:border-gray-600 @enderror">
+                          @error('name')
+                          <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                          @enderror
+                      </div>
+
+                      <!-- Email -->
+                      <div class="space-y-2" data-aos="fade-left" data-aos-delay="100">
+                          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                              Your Email <span class="text-red-500">*</span>
+                          </label>
+                          <input type="email" id="email" name="email" value="{{ old('email') }}" required
+                                 placeholder="Enter your email address"
+                                 class="w-full px-4 py-3 bg-white dark:bg-gray-700 border rounded-lg transition-colors
+                               focus:outline-none focus:ring-0 focus:border-gray-400
+                               @error('email') border-red-500 @else border-gray-300 dark:border-gray-600 @enderror">
+                          @error('email')
+                          <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                          @enderror
+                      </div>
+
+                      <!-- Message -->
+                      <div class="space-y-2" data-aos="fade-right" data-aos-delay="200">
+                          <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                              Your Message <span class="text-red-500">*</span>
+                          </label>
+                          <textarea id="message" name="message" rows="4" required
+                                    placeholder="Type your message here..."
+                                    class="w-full px-4 py-3 bg-white dark:bg-gray-700 border rounded-lg transition-colors
+                                  focus:outline-none focus:ring-0 focus:border-gray-400
+                                  @error('message') border-red-500 @else border-gray-300 dark:border-gray-600 @enderror">{{ old('message') }}</textarea>
+                          @error('message')
+                          <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                          @enderror
+                      </div>
+
+                      <!-- reCAPTCHA -->
+                      <div class="flex justify-center sm:justify-start">
+                          <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                      </div>
+                      @error('g-recaptcha-response')
+                      <p class="text-sm text-red-500 mt-2">{{ $message }}</p>
+                      @enderror
+
+                      <!-- Submit Button -->
+                      <button type="submit"
+                              class="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-200"
+                              data-aos="zoom-in" data-aos-delay="300">
+                          Send Message
+                      </button>
+                  </form>
+              </div>
+          </div>
       </div>
-    </div>
   </section>
 @endsection

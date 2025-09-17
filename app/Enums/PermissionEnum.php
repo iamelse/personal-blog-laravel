@@ -54,6 +54,9 @@ enum PermissionEnum: string
     case UPDATE_POST = 'posts_update';
     case DELETE_POST = 'posts_delete';
 
+    case READ_CONTACT = 'contacts_read';
+    case DELETE_CONTACT = 'contacts_delete';
+
     public static function all(): array
     {
         return array_column(self::cases(), 'value');

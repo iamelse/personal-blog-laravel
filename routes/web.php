@@ -32,6 +32,8 @@ Route::prefix('admin')->middleware('is.auth')->group(function () {
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+
+    include __DIR__ .'/web/backend/contact.php';
 });
 
 

@@ -58,6 +58,9 @@ enum RoleEnum: string
                 PermissionEnum::READ_POST,
                 PermissionEnum::UPDATE_POST,
                 PermissionEnum::DELETE_POST,
+
+                PermissionEnum::READ_CONTACT,
+                PermissionEnum::DELETE_CONTACT
             ],
             self::AUTHOR => [
                 PermissionEnum::READ_DASHBOARD,
